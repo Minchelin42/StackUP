@@ -23,7 +23,7 @@ struct ClassInfoView: View {
             Spacer()
             
             VStack(alignment: .trailing, spacing: 4) {
-                Text("\(title)").titleFont()
+                Text("\(title)").titleFont().multilineTextAlignment(.trailing)
                 Text("무제한 수강 \(price)원").priceFont()
             }
         }

@@ -24,6 +24,18 @@
 		39271F1C2BF4796200D76F05 /* MyClassListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F1B2BF4796200D76F05 /* MyClassListView.swift */; };
 		39271F1E2BF47C2800D76F05 /* ClassRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F1D2BF47C2800D76F05 /* ClassRow.swift */; };
 		39271F212BF47CCA00D76F05 /* ClassListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F202BF47CCA00D76F05 /* ClassListView.swift */; };
+		39271F242BF48A6600D76F05 /* ClassDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F232BF48A6600D76F05 /* ClassDetailViewModel.swift */; };
+		39271F272BF48AA400D76F05 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F262BF48AA400D76F05 /* ViewModelType.swift */; };
+		39271F2A2BF4978300D76F05 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F292BF4978300D76F05 /* Network.swift */; };
+		39271F2D2BF4A0BF00D76F05 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 39271F2C2BF4A0BF00D76F05 /* Alamofire */; };
+		39271F2F2BF4A3FA00D76F05 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F2E2BF4A3F900D76F05 /* NetworkRouter.swift */; };
+		39271F312BF4A65100D76F05 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F302BF4A65100D76F05 /* TargetType.swift */; };
+		39271F342BF4BC3900D76F05 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 39271F332BF4BC3900D76F05 /* .gitignore */; };
+		39271F362BF4BCEA00D76F05 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F352BF4BCEA00D76F05 /* APIKey.swift */; };
+		39271F382BF4BDCB00D76F05 /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F372BF4BDCB00D76F05 /* HTTPHeader.swift */; };
+		39271F3B2BF4BE6D00D76F05 /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F3A2BF4BE6D00D76F05 /* ClassModel.swift */; };
+		39271F3D2BF4BF5000D76F05 /* ClassListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F3C2BF4BF5000D76F05 /* ClassListViewModel.swift */; };
+		39271F3F2BF6033900D76F05 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F3E2BF6033900D76F05 /* NavigationLazyView.swift */; };
 		394020A02BF30CCC00E824C3 /* TechMasterSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940209F2BF30CCC00E824C3 /* TechMasterSwiftUIApp.swift */; };
 		394020A22BF30CCC00E824C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394020A12BF30CCC00E824C3 /* ContentView.swift */; };
 		394020A42BF30CCE00E824C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394020A32BF30CCE00E824C3 /* Assets.xcassets */; };
@@ -48,6 +60,18 @@
 		39271F1B2BF4796200D76F05 /* MyClassListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClassListView.swift; sourceTree = "<group>"; };
 		39271F1D2BF47C2800D76F05 /* ClassRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassRow.swift; sourceTree = "<group>"; };
 		39271F202BF47CCA00D76F05 /* ClassListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassListView.swift; sourceTree = "<group>"; };
+		39271F232BF48A6600D76F05 /* ClassDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailViewModel.swift; sourceTree = "<group>"; };
+		39271F262BF48AA400D76F05 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		39271F292BF4978300D76F05 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		39271F2E2BF4A3F900D76F05 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		39271F302BF4A65100D76F05 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		39271F322BF4AB1600D76F05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		39271F332BF4BC3900D76F05 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		39271F352BF4BCEA00D76F05 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		39271F372BF4BDCB00D76F05 /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
+		39271F3A2BF4BE6D00D76F05 /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
+		39271F3C2BF4BF5000D76F05 /* ClassListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassListViewModel.swift; sourceTree = "<group>"; };
+		39271F3E2BF6033900D76F05 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
 		3940209C2BF30CCC00E824C3 /* TechMasterSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechMasterSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3940209F2BF30CCC00E824C3 /* TechMasterSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechMasterSwiftUIApp.swift; sourceTree = "<group>"; };
 		394020A12BF30CCC00E824C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39271F2D2BF4A0BF00D76F05 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +130,7 @@
 				39271F082BF32E9900D76F05 /* MainColorBorderButton.swift */,
 				39271F0F2BF45C2100D76F05 /* ScrapButton.swift */,
 				39271F132BF4630500D76F05 /* ClassInfoView.swift */,
+				39271F3E2BF6033900D76F05 /* NavigationLazyView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -129,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				39271F0B2BF34EEC00D76F05 /* ClassDetailView.swift */,
+				39271F232BF48A6600D76F05 /* ClassDetailViewModel.swift */,
 			);
 			path = ClassDetail;
 			sourceTree = "<group>";
@@ -155,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				39271F202BF47CCA00D76F05 /* ClassListView.swift */,
+				39271F3C2BF4BF5000D76F05 /* ClassListViewModel.swift */,
 			);
 			path = ClassList;
 			sourceTree = "<group>";
@@ -165,6 +193,34 @@
 				39271F0D2BF34F6500D76F05 /* Image.swift */,
 			);
 			path = CustomModifier;
+			sourceTree = "<group>";
+		};
+		39271F252BF48A9A00D76F05 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				39271F262BF48AA400D76F05 /* ViewModelType.swift */,
+				39271F302BF4A65100D76F05 /* TargetType.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		39271F282BF4977800D76F05 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				39271F292BF4978300D76F05 /* Network.swift */,
+				39271F2E2BF4A3F900D76F05 /* NetworkRouter.swift */,
+				39271F352BF4BCEA00D76F05 /* APIKey.swift */,
+				39271F372BF4BDCB00D76F05 /* HTTPHeader.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		39271F392BF4BE6200D76F05 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39271F3A2BF4BE6D00D76F05 /* ClassModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		394020932BF30CCC00E824C3 = {
@@ -186,6 +242,10 @@
 		3940209E2BF30CCC00E824C3 /* TechMasterSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				39271F392BF4BE6200D76F05 /* Model */,
+				39271F322BF4AB1600D76F05 /* Info.plist */,
+				39271F282BF4977800D76F05 /* Network */,
+				39271F252BF48A9A00D76F05 /* Protocol */,
 				39271F222BF4887200D76F05 /* CustomModifier */,
 				39271F022BF3201B00D76F05 /* Extension */,
 				39271EFD2BF3138900D76F05 /* Custom */,
@@ -194,6 +254,7 @@
 				3940209F2BF30CCC00E824C3 /* TechMasterSwiftUIApp.swift */,
 				394020A12BF30CCC00E824C3 /* ContentView.swift */,
 				394020A52BF30CCE00E824C3 /* Preview Content */,
+				39271F332BF4BC3900D76F05 /* .gitignore */,
 			);
 			path = TechMasterSwiftUI;
 			sourceTree = "<group>";
@@ -222,6 +283,9 @@
 			dependencies = (
 			);
 			name = TechMasterSwiftUI;
+			packageProductDependencies = (
+				39271F2C2BF4A0BF00D76F05 /* Alamofire */,
+			);
 			productName = TechMasterSwiftUI;
 			productReference = 3940209C2BF30CCC00E824C3 /* TechMasterSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -250,6 +314,9 @@
 				Base,
 			);
 			mainGroup = 394020932BF30CCC00E824C3;
+			packageReferences = (
+				39271F2B2BF4A0BF00D76F05 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 3940209D2BF30CCC00E824C3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -265,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				394020A72BF30CCE00E824C3 /* Preview Assets.xcassets in Resources */,
+				39271F342BF4BC3900D76F05 /* .gitignore in Resources */,
 				394020A42BF30CCE00E824C3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +349,7 @@
 				39271F102BF45C2100D76F05 /* ScrapButton.swift in Sources */,
 				39271F162BF4747200D76F05 /* ReviewRow.swift in Sources */,
 				394020A22BF30CCC00E824C3 /* ContentView.swift in Sources */,
+				39271F3D2BF4BF5000D76F05 /* ClassListViewModel.swift in Sources */,
 				39271F042BF3210100D76F05 /* Font.swift in Sources */,
 				394020A02BF30CCC00E824C3 /* TechMasterSwiftUIApp.swift in Sources */,
 				39271F072BF32E1100D76F05 /* SignUpView.swift in Sources */,
@@ -288,13 +357,22 @@
 				39271F012BF31A1600D76F05 /* MainColorButton.swift in Sources */,
 				39271F122BF45D7D00D76F05 /* MyImage.swift in Sources */,
 				39271F1C2BF4796200D76F05 /* MyClassListView.swift in Sources */,
+				39271F312BF4A65100D76F05 /* TargetType.swift in Sources */,
 				39271F0C2BF34EEC00D76F05 /* ClassDetailView.swift in Sources */,
 				39271F212BF47CCA00D76F05 /* ClassListView.swift in Sources */,
 				39271EF82BF3118200D76F05 /* MyColor.swift in Sources */,
+				39271F382BF4BDCB00D76F05 /* HTTPHeader.swift in Sources */,
 				39271F0E2BF34F6500D76F05 /* Image.swift in Sources */,
+				39271F2F2BF4A3FA00D76F05 /* NetworkRouter.swift in Sources */,
+				39271F3B2BF4BE6D00D76F05 /* ClassModel.swift in Sources */,
+				39271F2A2BF4978300D76F05 /* Network.swift in Sources */,
+				39271F362BF4BCEA00D76F05 /* APIKey.swift in Sources */,
+				39271F3F2BF6033900D76F05 /* NavigationLazyView.swift in Sources */,
 				39271F1E2BF47C2800D76F05 /* ClassRow.swift in Sources */,
 				39271F092BF32E9900D76F05 /* MainColorBorderButton.swift in Sources */,
+				39271F242BF48A6600D76F05 /* ClassDetailViewModel.swift in Sources */,
 				39271F182BF4781C00D76F05 /* MyClassRow.swift in Sources */,
+				39271F272BF48AA400D76F05 /* ViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +509,7 @@
 				DEVELOPMENT_TEAM = 47HVCF82JP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TechMasterSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -460,6 +539,7 @@
 				DEVELOPMENT_TEAM = 47HVCF82JP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TechMasterSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -500,6 +580,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		39271F2B2BF4A0BF00D76F05 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		39271F2C2BF4A0BF00D76F05 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39271F2B2BF4A0BF00D76F05 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 394020942BF30CCC00E824C3 /* Project object */;
 }

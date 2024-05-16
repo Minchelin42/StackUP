@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct ClassRow: View {
+    
+    let item: ClassModel
+    
     var body: some View {
         VStack(alignment: .trailing){
             MyImage.testImg
                 .resizable()
                 .asLoadImage(cornerRadius: 7, height: 130)
-                .padding(.bottom, 4)
             
-            Text("3개월만에 실력이 확 늘어나는,\n일러스트 강의").blackMediumFont(size: 13).multilineTextAlignment(.trailing)
-                .padding(.bottom, 12)
+            VStack {
+                Text(item.title).blackMediumFont(size: 13)
+                    .multilineTextAlignment(.trailing)
+                Spacer()
+            }
+            .frame(height: 40)
+
         }
     }
 }
 
-#Preview {
-    ClassRow()
-}

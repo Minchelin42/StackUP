@@ -8,19 +8,28 @@
 import SwiftUI
 
 struct ClassListView: View {
+    
+    @StateObject var viewModel = ClassListViewModel()
     var colums: [GridItem] = Array(repeating: GridItem(.flexible()), count: 2)
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: colums) {
-                ForEach(0..<10) { _ in
-                    ClassRow()
-                        .onTapGesture {
-                            print("Class 선택")
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: colums) {
+                    ForEach(viewModel.output.post, id: \.post_id) { item in
+                        NavigationLink {
+                            NavigationLazyView(ClassDetailView(viewModel: ClassDetailViewModel(postID: item.post_id)))
+                        } label: {
+                            ClassRow(item: item)
                         }
+                        
+                    }
                 }
-            }
-        }.padding(.horizontal, 20)
+            }.padding(.horizontal, 20)
+                .task {
+                    viewModel.action(.viewOnAppear)
+                }
+        }
     }
 }
 

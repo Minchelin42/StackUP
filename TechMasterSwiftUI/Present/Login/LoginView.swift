@@ -1,5 +1,5 @@
 //
-//  SignUpView.swift
+//  LoginView.swift
 //  TechMasterSwiftUI
 //
 //  Created by 민지은 on 2024/05/14.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignUpView: View {
+struct LoginView: View {
     
     @State private var id = ""
     @State private var password = ""
@@ -37,5 +37,5 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView()
+    LoginView()
 }

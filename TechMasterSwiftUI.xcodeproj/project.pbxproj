@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		39271EF82BF3118200D76F05 /* MyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271EF72BF3118200D76F05 /* MyColor.swift */; };
-		39271EFC2BF311D500D76F05 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271EFB2BF311D500D76F05 /* SignInView.swift */; };
+		39271EFC2BF311D500D76F05 /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271EFB2BF311D500D76F05 /* JoinView.swift */; };
 		39271EFF2BF3139B00D76F05 /* MainColorUnderLineTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271EFE2BF3139B00D76F05 /* MainColorUnderLineTF.swift */; };
 		39271F012BF31A1600D76F05 /* MainColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F002BF31A1600D76F05 /* MainColorButton.swift */; };
 		39271F042BF3210100D76F05 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F032BF3210100D76F05 /* Font.swift */; };
-		39271F072BF32E1100D76F05 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F062BF32E1100D76F05 /* SignUpView.swift */; };
+		39271F072BF32E1100D76F05 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F062BF32E1100D76F05 /* LoginView.swift */; };
 		39271F092BF32E9900D76F05 /* MainColorBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F082BF32E9900D76F05 /* MainColorBorderButton.swift */; };
 		39271F0C2BF34EEC00D76F05 /* ClassDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F0B2BF34EEC00D76F05 /* ClassDetailView.swift */; };
 		39271F0E2BF34F6500D76F05 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F0D2BF34F6500D76F05 /* Image.swift */; };
@@ -44,11 +44,11 @@
 
 /* Begin PBXFileReference section */
 		39271EF72BF3118200D76F05 /* MyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyColor.swift; sourceTree = "<group>"; };
-		39271EFB2BF311D500D76F05 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		39271EFB2BF311D500D76F05 /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
 		39271EFE2BF3139B00D76F05 /* MainColorUnderLineTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainColorUnderLineTF.swift; sourceTree = "<group>"; };
 		39271F002BF31A1600D76F05 /* MainColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainColorButton.swift; sourceTree = "<group>"; };
 		39271F032BF3210100D76F05 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		39271F062BF32E1100D76F05 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		39271F062BF32E1100D76F05 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		39271F082BF32E9900D76F05 /* MainColorBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainColorBorderButton.swift; sourceTree = "<group>"; };
 		39271F0B2BF34EEC00D76F05 /* ClassDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailView.swift; sourceTree = "<group>"; };
 		39271F0D2BF34F6500D76F05 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -107,18 +107,18 @@
 				39271F1F2BF47CAE00D76F05 /* ClassList */,
 				39271F1A2BF4795000D76F05 /* MyClassList */,
 				39271F0A2BF34ED600D76F05 /* ClassDetail */,
-				39271F052BF32E0300D76F05 /* SignUp */,
-				39271EFA2BF311C500D76F05 /* SignIn */,
+				39271F052BF32E0300D76F05 /* Login */,
+				39271EFA2BF311C500D76F05 /* Join */,
 			);
 			path = Present;
 			sourceTree = "<group>";
 		};
-		39271EFA2BF311C500D76F05 /* SignIn */ = {
+		39271EFA2BF311C500D76F05 /* Join */ = {
 			isa = PBXGroup;
 			children = (
-				39271EFB2BF311D500D76F05 /* SignInView.swift */,
+				39271EFB2BF311D500D76F05 /* JoinView.swift */,
 			);
-			path = SignIn;
+			path = Join;
 			sourceTree = "<group>";
 		};
 		39271EFD2BF3138900D76F05 /* Custom */ = {
@@ -143,12 +143,12 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		39271F052BF32E0300D76F05 /* SignUp */ = {
+		39271F052BF32E0300D76F05 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				39271F062BF32E1100D76F05 /* SignUpView.swift */,
+				39271F062BF32E1100D76F05 /* LoginView.swift */,
 			);
-			path = SignUp;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		39271F0A2BF34ED600D76F05 /* ClassDetail */ = {
@@ -352,8 +352,8 @@
 				39271F3D2BF4BF5000D76F05 /* ClassListViewModel.swift in Sources */,
 				39271F042BF3210100D76F05 /* Font.swift in Sources */,
 				394020A02BF30CCC00E824C3 /* TechMasterSwiftUIApp.swift in Sources */,
-				39271F072BF32E1100D76F05 /* SignUpView.swift in Sources */,
-				39271EFC2BF311D500D76F05 /* SignInView.swift in Sources */,
+				39271F072BF32E1100D76F05 /* LoginView.swift in Sources */,
+				39271EFC2BF311D500D76F05 /* JoinView.swift in Sources */,
 				39271F012BF31A1600D76F05 /* MainColorButton.swift in Sources */,
 				39271F122BF45D7D00D76F05 /* MyImage.swift in Sources */,
 				39271F1C2BF4796200D76F05 /* MyClassListView.swift in Sources */,

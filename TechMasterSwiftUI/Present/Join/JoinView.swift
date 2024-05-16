@@ -1,5 +1,5 @@
 //
-//  SignInView.swift
+//  JoinView.swift
 //  TechMasterSwiftUI
 //
 //  Created by 민지은 on 2024/05/14.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignInView: View {
+struct JoinView: View {
     
     @State private var id = ""
     @State private var idValid = "아이디를 입력해주세요"
@@ -44,5 +44,5 @@ struct SignInView: View {
 }
 
 #Preview {
-    SignInView()
+    JoinView()
 }

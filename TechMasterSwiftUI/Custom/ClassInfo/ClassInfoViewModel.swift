@@ -21,6 +21,7 @@ final class ClassInfoViewModel: ViewModelType, LoadPostResult{
     var classInfo: ClassInfo
     
     @Published var nowStatus: Bool!
+    @Published var isPresent: Bool = false
     
     var input = Input()
     var output = Output()
@@ -40,6 +41,7 @@ extension ClassInfoViewModel {
     
     struct Input {
         var scrapButtonTapped = PassthroughSubject<PostID, Never>()
+        var togglePresent = PassthroughSubject<Void, Never>()
     }
     
     struct Output {
@@ -47,12 +49,15 @@ extension ClassInfoViewModel {
     
     enum Action {
         case scrapButtonTapped(postID: PostID)
+        case togglePresent
     }
     
     func action(_ action: Action) {
         switch action {
         case .scrapButtonTapped(let postID):
             input.scrapButtonTapped.send(postID)
+        case .togglePresent:
+            input.togglePresent.send(())
         }
     }
     
@@ -65,6 +70,14 @@ extension ClassInfoViewModel {
                 }
             }
             .store(in: &cancellables)
+
+        input.togglePresent
+            .sink { [weak self] _ in
+                guard let self else { return }
+                self.isPresent.toggle()
+            }
+            .store(in: &cancellables)
+
     }
     
     func getNowScrapStatus(scrapList: [String]) -> Bool{

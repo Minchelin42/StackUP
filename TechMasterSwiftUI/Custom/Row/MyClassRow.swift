@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MyClassRow: View {
+    
+    let item: ClassModel
+    
     var body: some View {
         VStack{
             MyImage.testImg
@@ -15,12 +18,8 @@ struct MyClassRow: View {
                 .asLoadImage(cornerRadius: 0, height: 200)
                 .padding(.bottom, 8)
             
-            ClassInfoView(title: "3개월만에 실력이 확 늘어나는,\n일러스트 강의", price: "394,000", buttonTitle: "수강 후기 작성")
+            ClassInfoView(buttonAction: .transition, viewModel: ClassInfoViewModel(classInfo: item))
                 .padding(.bottom, 4)
         }
     }
-}
-
-#Preview {
-    MyClassRow()
 }

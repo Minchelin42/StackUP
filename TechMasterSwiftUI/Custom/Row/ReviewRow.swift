@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ReviewRow: View {
+    
+    let nickname: String
+    let review: String
+    
     var body: some View {
         HStack(alignment: .top) {
             MyImage.testImg
@@ -16,14 +20,10 @@ struct ReviewRow: View {
                 .frame(width: 50, height: 50)
             
             VStack(alignment: .leading) {
-                Text("Samdasu").subtitleFont()
+                Text(nickname).subtitleFont()
                     .padding(.bottom, 2)
-                Text("이거 해봤는데 진심 악마랑 거래한 수준으로 성장해요").blackMediumFont(size: 11).frame(maxWidth: .infinity, alignment: .leading)
+                Text(review).blackMediumFont(size: 11).frame(maxWidth: .infinity, alignment: .leading)
             }.frame(maxWidth: .infinity, alignment: .leading)
         }
     }
-}
-
-#Preview {
-    ReviewRow()
 }

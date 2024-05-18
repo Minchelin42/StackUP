@@ -15,14 +15,17 @@ struct ClassDetailView: View {
     var body: some View {
         ScrollView {
             if let item = viewModel.output.post {
-                VStack() {
+                VStack(alignment: .leading) {
                     MyImage.testImg
                         .resizable()
                         .asLoadImage(cornerRadius: 25, height: 230)
                         .padding(.bottom, 8)
                     ClassInfoView(buttonTitle: "수강하기", viewModel: ClassInfoViewModel(classInfo: viewModel.output.post))
                         .padding(.bottom, 4)
-                    ClassReviewInfoView(intro: item.classIntro)
+                    
+                    classIntroductionView(intro: item.classIntro)
+                    
+                    ClassReviewInfoView(viewModel: ClassReviewInfoViewModel(postID: item.post_id))
                 }
                 .padding(.horizontal, 20)
             }//if let
@@ -31,33 +34,20 @@ struct ClassDetailView: View {
             viewModel.action(.viewOnAppear)
         }
     }
-}
-
-
-struct ClassReviewInfoView: View {
     
-    let intro: String
-    
-    var colums: [GridItem] = Array(repeating: GridItem(.flexible()), count: 1)
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("강의소개").subtitleFont().padding(.bottom, 4)
-            Text(intro).blackMediumFont(size: 11).padding(.bottom, 8)
-            Rectangle().foregroundColor(MyColor.lightGray).frame(maxWidth: .infinity, maxHeight: 1).padding(.bottom, 12)
-            
-            Text("강의후기").subtitleFont().padding(.bottom, 4)
-
-            LazyVGrid(columns: colums) {
-                ForEach(0..<10) {_ in
-                    ReviewRow()
-                }
-            }
-        }
+    @ViewBuilder
+    private func classIntroductionView(intro: String) -> some View {
+        Text("강의소개")
+            .subtitleFont()
+            .padding(.bottom, 4)
+        
+        Text(intro)
+            .blackMediumFont(size: 11)
+            .padding(.bottom, 8)
+        
+        Rectangle()
+            .foregroundColor(MyColor.lightGray)
+            .frame(maxWidth: .infinity, maxHeight: 1)
+            .padding(.bottom, 12)
     }
 }
-
-
-//#Preview {
-//    ClassDetailView()
-//}

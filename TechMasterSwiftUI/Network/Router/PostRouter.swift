@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 enum PostRouter {
-    case getPost
+    case getPost(productID: String)
     case getThisPost(id: String)
     case scrap(postID: String, query: ScrapModel)
 }
@@ -58,7 +58,11 @@ extension PostRouter: TargetType {
     }
     
     var queryItems: [URLQueryItem]? {
-        return nil
+        switch self {
+        case .getPost(let productID):
+            return [URLQueryItem(name: "product_id", value: productID)]
+        default: return nil
+        }
     }
     
     var body: Data? {

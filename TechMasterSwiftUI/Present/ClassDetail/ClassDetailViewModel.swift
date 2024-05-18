@@ -64,7 +64,7 @@ extension ClassDetailViewModel {
     
     func fetchPost() async {
         do {
-            try await Network.shared.myAPICall(model: ClassModel.self, router: NetworkRouter.getThisPost(id: self.postID))
+            try await Network.shared.myAPICall(model: ClassModel.self, router: PostRouter.getThisPost(id: self.postID))
                 .sink(receiveCompletion: { result in
                     switch result{
                     case .finished:

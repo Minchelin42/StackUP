@@ -57,17 +57,17 @@ extension ClassListViewModel {
     
     func fetchPost() async {
         do {
-            try await Network.shared.myAPICall(model: GetClassModel.self, router: NetworkRouter.getPost)
+            try await Network.shared.myAPICall(model: GetClassModel.self, router: PostRouter.getPost)
                 .sink(receiveCompletion: { result in
                     switch result{
                     case .finished:
                         print("Fetch Success")
                     case .failure:
                         print("Fetch Failed")
+                        print(result.self)
                     }
                 }, receiveValue: { resultPost in
                     self.output.post = resultPost.data
-                    print("⭐️", self.output.post)
                 }).store(in: &cancellables)
         } catch {
             output.post = []

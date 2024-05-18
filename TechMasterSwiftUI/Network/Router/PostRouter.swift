@@ -1,5 +1,5 @@
 //
-//  Router.swift
+//  PostRouter.swift
 //  TechMasterSwiftUI
 //
 //  Created by 민지은 on 2024/05/15.
@@ -8,12 +8,12 @@
 import Foundation
 import Alamofire
 
-enum NetworkRouter {
+enum PostRouter {
     case getPost
     case getThisPost(id: String)
 }
 
-extension NetworkRouter: TargetType {
+extension PostRouter: TargetType {
     var baseURL: String {
         return APIKey.baseURL.rawValue
     }
@@ -41,7 +41,7 @@ extension NetworkRouter: TargetType {
         switch self {
         case .getPost, .getThisPost:
             return [ HTTPHeader.sesacKey.rawValue : APIKey.sesacKey.rawValue,
-                     HTTPHeader.authorization.rawValue : APIKey.accessToken.rawValue]
+                     HTTPHeader.authorization.rawValue : UserDefaults.standard.string(forKey: "accessToken") ?? ""]
         }
     }
     

@@ -18,7 +18,7 @@ struct ClassRow: View {
                 .asLoadImage(cornerRadius: 7, height: 130)
             
             VStack {
-                Text(item.title).blackMediumFont(size: 13)
+                Text(item.className).blackMediumFont(size: 13)
                     .multilineTextAlignment(.trailing)
                 Spacer()
             }

@@ -21,9 +21,9 @@ struct ClassDetailView: View {
                         .asLoadImage(cornerRadius: 25, height: 230)
                         .padding(.bottom, 8)
                     
-                    ClassInfoView(title: item.title, price: "\(item.content)", buttonTitle: "수강하기")
+                    ClassInfoView(title: item.className, price: "\(item.price)", buttonTitle: "수강하기")
                         .padding(.bottom, 4)
-                    ClassReviewInfoView(intro: item.content1)
+                    ClassReviewInfoView(intro: item.classIntro)
                 }
                 .padding(.horizontal, 20)
             }//if let

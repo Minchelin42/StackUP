@@ -9,30 +9,43 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var id = ""
-    @State private var password = ""
-
-    
-    
+    @StateObject private var viewModel = LoginViewModel()
+    @State var isPresent = false
     var body: some View {
-        VStack() {
-            
-            MainColorUnderLineTF(text: $id, placeholder: "ID")
-                .padding(.bottom, 12)
-            MainColorUnderLineTF(text: $password, placeholder: "Password")
-                .padding(.bottom, 24)
-
-            MainColorButton(title: "로그인", action: {
-                print("ID:", id)
-                print("Password:", password)
-            }, cornerRadius: 10).frame(height: 40)
-
-            MainColorBorderButton(title: "회원가입", action: {
-                print("회원가입")
-            }, cornerRadius: 10).frame(height: 40)
-        }//VStack
-        .padding(.horizontal, 50)
-            
+        NavigationStack {
+            VStack() {
+                
+                MainColorUnderLineTF(text: $viewModel.id, placeholder: "ID")
+                    .padding(.bottom, 12)
+                MainColorUnderLineTF(text: $viewModel.password, placeholder: "Password")
+                    .padding(.bottom, 24)
+                
+                MainColorButton(title: "로그인", action: {
+                    print("ID:", viewModel.id)
+                    print("Password:", viewModel.password)
+                    viewModel.action(.loginButtonTapped)
+//                    viewModel.alertPresent = true
+                }, cornerRadius: 10, disabled: false).frame(height: 40)
+                    .alert(isPresented: $viewModel.alertPresent) {
+                        Alert(title: Text(viewModel.output.alertMessage), message: nil,
+                              dismissButton: .default(Text("확인"), action: {
+                            if viewModel.output.loginSuccess {
+                                viewModel.classViewPresent = true
+                            }
+                        }))}
+                
+                MainColorBorderButton(title: "회원가입", action: {
+                    print("회원가입")
+                    isPresent.toggle()
+                }, cornerRadius: 10).frame(height: 40)
+                    .navigationDestination(isPresented: $isPresent) {
+                        JoinView()
+                    }
+            }//VStack
+            .padding(.horizontal, 50)
+        }.fullScreenCover(isPresented: $viewModel.classViewPresent) {
+            ClassListView()
+        }         
     }
 }
 

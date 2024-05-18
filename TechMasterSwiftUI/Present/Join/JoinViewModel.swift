@@ -57,7 +57,7 @@ extension JoinViewModel {
         var joinButtonTapped = PassthroughSubject<JoinQuery, Never>()
     }
     
-    struct Output { //post
+    struct Output {
         var idValid: String = ""
         var pwValid: String = ""
         var nickValid: String = ""

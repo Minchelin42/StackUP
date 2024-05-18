@@ -10,6 +10,7 @@ import SwiftUI
 enum MyImage {
     
     static let scrap = Image("scrap")
+    static let scrapFill = Image("scrap.fill")
     static let testImg = Image("testThumbnail")
     
 }

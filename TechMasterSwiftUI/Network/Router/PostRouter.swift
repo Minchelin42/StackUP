@@ -11,6 +11,7 @@ import Alamofire
 enum PostRouter {
     case getPost(productID: String)
     case getThisPost(id: String)
+    case getScrapPost
     case scrap(postID: String, query: ScrapModel)
 }
 
@@ -25,6 +26,8 @@ extension PostRouter: TargetType {
             return .get
         case .getThisPost:
             return .get
+        case .getScrapPost:
+            return .get
         case .scrap:
             return .post
         }
@@ -36,6 +39,8 @@ extension PostRouter: TargetType {
             return "/posts"
         case .getThisPost(let id):
             return "/posts/\(id)"
+        case .getScrapPost:
+            return "/posts/likes/me"
         case .scrap(let postID, _):
             return "/posts/\(postID)/like"
         }
@@ -43,7 +48,7 @@ extension PostRouter: TargetType {
     
     var header: [String : String] {
         switch self {
-        case .getPost, .getThisPost:
+        case .getPost, .getThisPost, .getScrapPost:
             return [ HTTPHeader.sesacKey.rawValue : APIKey.sesacKey.rawValue,
                      HTTPHeader.authorization.rawValue : NowUser.accessToken]
         case .scrap:

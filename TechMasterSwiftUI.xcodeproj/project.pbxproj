@@ -55,6 +55,7 @@
 		3949FFAA2BF888BE00C2496B /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FFA92BF888BE00C2496B /* ReviewModel.swift */; };
 		3949FFAD2BF88ABC00C2496B /* ClassReviewInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FFAC2BF88ABC00C2496B /* ClassReviewInfoView.swift */; };
 		3949FFAF2BF88AD900C2496B /* ClassReviewInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FFAE2BF88AD900C2496B /* ClassReviewInfoViewModel.swift */; };
+		3949FFB12BF9050C00C2496B /* MyClassListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FFB02BF9050C00C2496B /* MyClassListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		3949FFA92BF888BE00C2496B /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 		3949FFAC2BF88ABC00C2496B /* ClassReviewInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassReviewInfoView.swift; sourceTree = "<group>"; };
 		3949FFAE2BF88AD900C2496B /* ClassReviewInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassReviewInfoViewModel.swift; sourceTree = "<group>"; };
+		3949FFB02BF9050C00C2496B /* MyClassListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClassListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				39271F1B2BF4796200D76F05 /* MyClassListView.swift */,
+				3949FFB02BF9050C00C2496B /* MyClassListViewModel.swift */,
 			);
 			path = MyClassList;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				39271F092BF32E9900D76F05 /* MainColorBorderButton.swift in Sources */,
 				3949FFA02BF8596200C2496B /* UserDefaultManager.swift in Sources */,
 				39271F792BF7A9C500D76F05 /* LoginModel.swift in Sources */,
+				3949FFB12BF9050C00C2496B /* MyClassListViewModel.swift in Sources */,
 				39271F242BF48A6600D76F05 /* ClassDetailViewModel.swift in Sources */,
 				3949FFA82BF8831C00C2496B /* ScrapModel.swift in Sources */,
 				39271F182BF4781C00D76F05 /* MyClassRow.swift in Sources */,

@@ -38,11 +38,10 @@ struct ClassInfoView: View {
         MainColorButton(title: buttonAction.rawValue, action: {
             print("\(buttonAction.rawValue) 버튼 클릭")
             viewModel.action(.togglePresent)
-        }, cornerRadius: 5, disabled: false)
-        .frame(height: 40)
+        }, cornerRadius: 5, disabled: false).frame(height: 40)
         .padding(.bottom, 12)
         .navigationDestination(isPresented: $viewModel.isPresent) {
-            destination(.transition)
+            destination(buttonAction)
         }
         
     }

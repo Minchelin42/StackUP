@@ -33,8 +33,6 @@ final class ClassInfoViewModel: ViewModelType, LoadPostResult{
     }
 }
 
-
-
 extension ClassInfoViewModel {
     
     typealias PostID = String

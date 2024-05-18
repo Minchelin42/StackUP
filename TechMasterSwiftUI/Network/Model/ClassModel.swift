@@ -7,6 +7,7 @@
 
 import Foundation
 
+typealias GetScrapModel = GetClassModel
 typealias ClassList = [ClassModel]
 
 struct GetClassModel: Decodable {

@@ -10,15 +10,22 @@ import SwiftUI
 struct MyClassListView: View {
     
     var colums: [GridItem] = Array(repeating: GridItem(.flexible()), count: 1)
+    @StateObject private var viewModel = MyClassListViewModel()
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: colums) {
-                ForEach(0..<10) {_ in
-                    MyClassRow()
+        NavigationStack{
+            ScrollView {
+                LazyVGrid(columns: colums) {
+                    ForEach(viewModel.output.scrap, id: \.post_id) { item in
+                        MyClassRow(item: item)
+                    }
                 }
             }
-        }.padding(.horizontal, 20)
+            .padding(.horizontal, 20)
+            .task {
+                viewModel.action(.getScrapList)
+            }
+        }
     }
 }
 

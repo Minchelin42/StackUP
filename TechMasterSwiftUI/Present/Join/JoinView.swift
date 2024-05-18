@@ -6,41 +6,49 @@
 //
 
 import SwiftUI
+import Combine
 
 struct JoinView: View {
     
-    @State private var id = ""
-    @State private var idValid = "아이디를 입력해주세요"
-    @State private var password = ""
-    @State private var passwordValid = "비밀번호를 입력해주세요"
-    @State private var nickname = ""
-    @State private var nicknameValid = "닉네임을 입력해주세요"
-    
-    
+    @Environment(\.presentationMode) private var presentationMode //viewModel에 넣으면 안되나?
+    @StateObject private var viewModel = JoinViewModel()
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack(alignment: .bottom) {
-                MainColorUnderLineTF(text: $id, placeholder: "ID")
-                MainColorButton(title: "중복확인", action: {
-                    print("중복확인 클릭")
-                }, cornerRadius: 10)
-                .frame(width: 80, height: 40)
+            VStack(alignment: .leading) {
+                //아이디 입력 및 중복확인
+                HStack(alignment: .bottom) {
+                    MainColorUnderLineTF(text: $viewModel.id, placeholder: "ID")
+                    MainColorButton(title: "중복확인", action: {
+                        viewModel.action(.duplicateCheck)
+                    }, cornerRadius: 10, disabled: !viewModel.output.duplicateCheck)
+                    .frame(width: 80, height: 40)
+                }
+                Text(viewModel.output.idValid).mainMediumFont(size: 11).frame(height: 11)
+                
+                //비밀번호 입력
+                MainColorUnderLineTF(text: $viewModel.password, placeholder: "Password")
+                Text(viewModel.output.pwValid).mainMediumFont(size: 11).frame(height: 11)
+                
+                //닉네임 입력
+                MainColorUnderLineTF(text: $viewModel.nickname, placeholder: "Nickname")
+                Text(viewModel.output.nickValid).mainMediumFont(size: 11).frame(height: 11).padding(.bottom, 20)
+                
+                //회원가입 버튼
+                MainColorButton(title: "회원가입", action: {
+                    viewModel.action(.joinButtonTapped)
+                }, cornerRadius: 10, disabled: !viewModel.output.joinAvailable)
+                .frame(height: 40)
+                .alert(isPresented: $viewModel.alertPresent) {
+                    Alert(title: Text(viewModel.output.joinSuccess), message: Text(viewModel.output.alertMessage),
+                          dismissButton: .default(Text("확인"), action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }))}
             }
-            Text(idValid).mainMediumFont(size: 11)
-            MainColorUnderLineTF(text: $password, placeholder: "Password")
-            Text(passwordValid).mainMediumFont(size: 11)
-            MainColorUnderLineTF(text: $nickname, placeholder: "Nickname")
-            Text(nicknameValid).mainMediumFont(size: 11).padding(.bottom, 20)
-            MainColorButton(title: "회원가입", action: {
-                print("ID:", id)
-                print("Password:", password)
-                print("Nickname:",nickname)
-            }, cornerRadius: 10).frame(height: 40)
-            
-        }//VStack
-        .padding(.horizontal, 50)
-            
-    }
+            .padding(.horizontal, 50)
+            .task {
+                
+            }
+        }
+    
 }
 
 #Preview {

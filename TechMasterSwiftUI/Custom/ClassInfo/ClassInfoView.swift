@@ -8,27 +8,26 @@
 import SwiftUI
 
 struct ClassInfoView: View {
-    
-    let title: String
-    let price: String
-    
+
     let buttonTitle: String
+    
+    @StateObject var viewModel: ClassInfoViewModel
     
     var body: some View {
         HStack(alignment: .top) {
-            ScrapButton {
+            ScrapButton(isScrap: $viewModel.nowStatus) {
                 print("Scrap 했음")
+                viewModel.action(.scrapButtonTapped(postID: viewModel.classInfo.post_id))
             }
-            
+
             Spacer()
             
             VStack(alignment: .trailing, spacing: 4) {
-                Text("\(title)").titleFont().multilineTextAlignment(.trailing)
-                Text("무제한 수강 \(price)원").priceFont()
+                Text("\(viewModel.classInfo.className)").titleFont().multilineTextAlignment(.trailing)
+                Text("무제한 수강 \(viewModel.classInfo.price)원").priceFont()
             }
         }
-        
-        
+
         MainColorButton(title: buttonTitle, action: {
             print("\(buttonTitle) 버튼 클릭")
         }, cornerRadius: 5, disabled: false)
@@ -37,6 +36,3 @@ struct ClassInfoView: View {
     }
 }
 
-#Preview {
-    ClassInfoView(title: "DFSDF", price: "393,300", buttonTitle: "수강하기")
-}

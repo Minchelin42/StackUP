@@ -20,8 +20,7 @@ struct ClassDetailView: View {
                         .resizable()
                         .asLoadImage(cornerRadius: 25, height: 230)
                         .padding(.bottom, 8)
-                    
-                    ClassInfoView(title: item.className, price: "\(item.price)", buttonTitle: "수강하기")
+                    ClassInfoView(buttonTitle: "수강하기", viewModel: ClassInfoViewModel(classInfo: viewModel.output.post))
                         .padding(.bottom, 4)
                     ClassReviewInfoView(intro: item.classIntro)
                 }

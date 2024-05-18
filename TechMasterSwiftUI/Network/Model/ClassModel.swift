@@ -20,6 +20,7 @@ struct ClassModel: Decodable {
     let className: String
     let price: String
     let classIntro: String
+    let scrap: [String]
     
     enum CodingKeys: String, CodingKey {
         case post_id
@@ -27,6 +28,7 @@ struct ClassModel: Decodable {
         case className = "title"
         case price = "content"
         case classIntro = "content1"
+        case scrap = "likes"
     }
     
     init(from decoder: Decoder) throws {
@@ -36,5 +38,6 @@ struct ClassModel: Decodable {
         self.className = try container.decodeIfPresent(String.self, forKey: .className) ?? ""
         self.price = try container.decodeIfPresent(String.self, forKey: .price) ?? ""
         self.classIntro = try container.decodeIfPresent(String.self, forKey: .classIntro) ?? ""
+        self.scrap = try container.decodeIfPresent([String].self, forKey: .scrap) ?? []
     }
 }

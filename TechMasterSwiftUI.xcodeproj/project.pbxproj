@@ -50,6 +50,8 @@
 		394020A72BF30CCE00E824C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394020A62BF30CCE00E824C3 /* Preview Assets.xcassets */; };
 		3949FFA02BF8596200C2496B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FF9F2BF8596200C2496B /* UserDefaultManager.swift */; };
 		3949FFA32BF85EEF00C2496B /* NowUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FFA22BF85EEF00C2496B /* NowUser.swift */; };
+		3949FFA62BF8679500C2496B /* ClassInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FFA52BF8679500C2496B /* ClassInfoViewModel.swift */; };
+		3949FFA82BF8831C00C2496B /* ScrapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FFA72BF8831C00C2496B /* ScrapModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +99,8 @@
 		394020A62BF30CCE00E824C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3949FF9F2BF8596200C2496B /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		3949FFA22BF85EEF00C2496B /* NowUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowUser.swift; sourceTree = "<group>"; };
+		3949FFA52BF8679500C2496B /* ClassInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfoViewModel.swift; sourceTree = "<group>"; };
+		3949FFA72BF8831C00C2496B /* ScrapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,12 +149,12 @@
 		39271EFD2BF3138900D76F05 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				3949FFA42BF8678100C2496B /* ClassInfo */,
 				39271F192BF4782000D76F05 /* Row */,
 				39271EFE2BF3139B00D76F05 /* MainColorUnderLineTF.swift */,
 				39271F002BF31A1600D76F05 /* MainColorButton.swift */,
 				39271F082BF32E9900D76F05 /* MainColorBorderButton.swift */,
 				39271F0F2BF45C2100D76F05 /* ScrapButton.swift */,
-				39271F132BF4630500D76F05 /* ClassInfoView.swift */,
 				39271F3E2BF6033900D76F05 /* NavigationLazyView.swift */,
 			);
 			path = Custom;
@@ -242,6 +246,7 @@
 		39271F392BF4BE6200D76F05 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3949FFA72BF8831C00C2496B /* ScrapModel.swift */,
 				39271F3A2BF4BE6D00D76F05 /* ClassModel.swift */,
 				39271F6C2BF78FA100D76F05 /* JoinModel.swift */,
 				39271F782BF7A9C500D76F05 /* LoginModel.swift */,
@@ -319,6 +324,15 @@
 				3949FFA22BF85EEF00C2496B /* NowUser.swift */,
 			);
 			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		3949FFA42BF8678100C2496B /* ClassInfo */ = {
+			isa = PBXGroup;
+			children = (
+				39271F132BF4630500D76F05 /* ClassInfoView.swift */,
+				3949FFA52BF8679500C2496B /* ClassInfoViewModel.swift */,
+			);
+			path = ClassInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +421,7 @@
 				39271F042BF3210100D76F05 /* Font.swift in Sources */,
 				394020A02BF30CCC00E824C3 /* TechMasterSwiftUIApp.swift in Sources */,
 				39271F772BF796FD00D76F05 /* LoginViewModel.swift in Sources */,
+				3949FFA62BF8679500C2496B /* ClassInfoViewModel.swift in Sources */,
 				3949FFA32BF85EEF00C2496B /* NowUser.swift in Sources */,
 				39271F702BF793DA00D76F05 /* JoinQuery.swift in Sources */,
 				39271F072BF32E1100D76F05 /* LoginView.swift in Sources */,
@@ -434,6 +449,7 @@
 				3949FFA02BF8596200C2496B /* UserDefaultManager.swift in Sources */,
 				39271F792BF7A9C500D76F05 /* LoginModel.swift in Sources */,
 				39271F242BF48A6600D76F05 /* ClassDetailViewModel.swift in Sources */,
+				3949FFA82BF8831C00C2496B /* ScrapModel.swift in Sources */,
 				39271F182BF4781C00D76F05 /* MyClassRow.swift in Sources */,
 				39271F432BF66E5E00D76F05 /* UserRouter.swift in Sources */,
 				39271F272BF48AA400D76F05 /* ViewModelType.swift in Sources */,

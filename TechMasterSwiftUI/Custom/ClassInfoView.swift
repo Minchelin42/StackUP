@@ -31,7 +31,7 @@ struct ClassInfoView: View {
         
         MainColorButton(title: buttonTitle, action: {
             print("\(buttonTitle) 버튼 클릭")
-        }, cornerRadius: 5)
+        }, cornerRadius: 5, disabled: false)
         .frame(height: 40)
         .padding(.bottom, 12)
     }

@@ -12,6 +12,7 @@ struct MainColorButton: View {
     let title: String
     let action: () -> Void
     let cornerRadius: CGFloat
+    let disabled: Bool
     
     var body: some View {
         Button {
@@ -23,11 +24,12 @@ struct MainColorButton: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
         }
-        .background(MyColor.main)
+        .background(disabled ? MyColor.lightGray : MyColor.main)
+        .disabled(disabled)
         .cornerRadius(cornerRadius)
     }
 }
 
-#Preview {
-    MainColorButton(title: "회원가입", action: { print("액션") }, cornerRadius: 10)
-}
+//#Preview {
+//    MainColorButton(title: "회원가입", action: { print("액션") }, cornerRadius: 10)
+//}

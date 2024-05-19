@@ -56,6 +56,8 @@
 		3949FFAD2BF88ABC00C2496B /* ClassReviewInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FFAC2BF88ABC00C2496B /* ClassReviewInfoView.swift */; };
 		3949FFAF2BF88AD900C2496B /* ClassReviewInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FFAE2BF88AD900C2496B /* ClassReviewInfoViewModel.swift */; };
 		3949FFB12BF9050C00C2496B /* MyClassListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FFB02BF9050C00C2496B /* MyClassListViewModel.swift */; };
+		3949FFB42BF9AB2200C2496B /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FFB32BF9AB2200C2496B /* MyPageView.swift */; };
+		39D9E9B22BF9D63A000FA70A /* MyReviewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9E9B12BF9D63A000FA70A /* MyReviewRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +111,8 @@
 		3949FFAC2BF88ABC00C2496B /* ClassReviewInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassReviewInfoView.swift; sourceTree = "<group>"; };
 		3949FFAE2BF88AD900C2496B /* ClassReviewInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassReviewInfoViewModel.swift; sourceTree = "<group>"; };
 		3949FFB02BF9050C00C2496B /* MyClassListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClassListViewModel.swift; sourceTree = "<group>"; };
+		3949FFB32BF9AB2200C2496B /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		39D9E9B12BF9D63A000FA70A /* MyReviewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,7 @@
 		39271EF92BF311C000D76F05 /* Present */ = {
 			isa = PBXGroup;
 			children = (
+				3949FFB22BF9AB0100C2496B /* MyPage */,
 				39271F1F2BF47CAE00D76F05 /* ClassList */,
 				39271F1A2BF4795000D76F05 /* MyClassList */,
 				39271F0A2BF34ED600D76F05 /* ClassDetail */,
@@ -201,6 +206,7 @@
 				39271F152BF4747200D76F05 /* ReviewRow.swift */,
 				39271F172BF4781C00D76F05 /* MyClassRow.swift */,
 				39271F1D2BF47C2800D76F05 /* ClassRow.swift */,
+				39D9E9B12BF9D63A000FA70A /* MyReviewRow.swift */,
 			);
 			path = Row;
 			sourceTree = "<group>";
@@ -355,6 +361,14 @@
 			path = ClassReviewInfo;
 			sourceTree = "<group>";
 		};
+		3949FFB22BF9AB0100C2496B /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				3949FFB32BF9AB2200C2496B /* MyPageView.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -437,6 +451,7 @@
 				39271F102BF45C2100D76F05 /* ScrapButton.swift in Sources */,
 				39271F162BF4747200D76F05 /* ReviewRow.swift in Sources */,
 				394020A22BF30CCC00E824C3 /* ContentView.swift in Sources */,
+				39D9E9B22BF9D63A000FA70A /* MyReviewRow.swift in Sources */,
 				39271F3D2BF4BF5000D76F05 /* ClassListViewModel.swift in Sources */,
 				39271F042BF3210100D76F05 /* Font.swift in Sources */,
 				394020A02BF30CCC00E824C3 /* TechMasterSwiftUIApp.swift in Sources */,
@@ -465,6 +480,7 @@
 				39271F2A2BF4978300D76F05 /* Network.swift in Sources */,
 				39271F362BF4BCEA00D76F05 /* APIKey.swift in Sources */,
 				39271F3F2BF6033900D76F05 /* NavigationLazyView.swift in Sources */,
+				3949FFB42BF9AB2200C2496B /* MyPageView.swift in Sources */,
 				39271F1E2BF47C2800D76F05 /* ClassRow.swift in Sources */,
 				39271F092BF32E9900D76F05 /* MainColorBorderButton.swift in Sources */,
 				3949FFA02BF8596200C2496B /* UserDefaultManager.swift in Sources */,

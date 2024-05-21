@@ -44,6 +44,9 @@
 		39271F742BF795AD00D76F05 /* LoginQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F732BF795AD00D76F05 /* LoginQuery.swift */; };
 		39271F772BF796FD00D76F05 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F762BF796FD00D76F05 /* LoginViewModel.swift */; };
 		39271F792BF7A9C500D76F05 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39271F782BF7A9C500D76F05 /* LoginModel.swift */; };
+		3928F9AC2BFC7D1800B02203 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3928F9AB2BFC7D1800B02203 /* MyPageViewModel.swift */; };
+		3928F9AE2BFC817300B02203 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3928F9AD2BFC817300B02203 /* ProfileRouter.swift */; };
+		3928F9B02BFC823700B02203 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3928F9AF2BFC823700B02203 /* ProfileModel.swift */; };
 		394020A02BF30CCC00E824C3 /* TechMasterSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940209F2BF30CCC00E824C3 /* TechMasterSwiftUIApp.swift */; };
 		394020A22BF30CCC00E824C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394020A12BF30CCC00E824C3 /* ContentView.swift */; };
 		394020A42BF30CCE00E824C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394020A32BF30CCE00E824C3 /* Assets.xcassets */; };
@@ -99,6 +102,9 @@
 		39271F732BF795AD00D76F05 /* LoginQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginQuery.swift; sourceTree = "<group>"; };
 		39271F762BF796FD00D76F05 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		39271F782BF7A9C500D76F05 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		3928F9AB2BFC7D1800B02203 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
+		3928F9AD2BFC817300B02203 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		3928F9AF2BFC823700B02203 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		3940209C2BF30CCC00E824C3 /* TechMasterSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechMasterSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3940209F2BF30CCC00E824C3 /* TechMasterSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechMasterSwiftUIApp.swift; sourceTree = "<group>"; };
 		394020A12BF30CCC00E824C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -270,6 +276,7 @@
 				39271F6C2BF78FA100D76F05 /* JoinModel.swift */,
 				39271F782BF7A9C500D76F05 /* LoginModel.swift */,
 				3949FFA92BF888BE00C2496B /* ReviewModel.swift */,
+				3928F9AF2BFC823700B02203 /* ProfileModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,6 +296,7 @@
 			children = (
 				39271F2E2BF4A3F900D76F05 /* PostRouter.swift */,
 				39271F422BF66E5E00D76F05 /* UserRouter.swift */,
+				3928F9AD2BFC817300B02203 /* ProfileRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -368,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				3949FFB32BF9AB2200C2496B /* MyPageView.swift */,
+				3928F9AB2BFC7D1800B02203 /* MyPageViewModel.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -458,7 +467,9 @@
 				39271F3D2BF4BF5000D76F05 /* ClassListViewModel.swift in Sources */,
 				39271F042BF3210100D76F05 /* Font.swift in Sources */,
 				394020A02BF30CCC00E824C3 /* TechMasterSwiftUIApp.swift in Sources */,
+				3928F9B02BFC823700B02203 /* ProfileModel.swift in Sources */,
 				39271F772BF796FD00D76F05 /* LoginViewModel.swift in Sources */,
+				3928F9AC2BFC7D1800B02203 /* MyPageViewModel.swift in Sources */,
 				3949FFA62BF8679500C2496B /* ClassInfoViewModel.swift in Sources */,
 				3949FFA32BF85EEF00C2496B /* NowUser.swift in Sources */,
 				39271F702BF793DA00D76F05 /* JoinQuery.swift in Sources */,
@@ -492,6 +503,7 @@
 				3949FFB12BF9050C00C2496B /* MyClassListViewModel.swift in Sources */,
 				39271F242BF48A6600D76F05 /* ClassDetailViewModel.swift in Sources */,
 				3949FFA82BF8831C00C2496B /* ScrapModel.swift in Sources */,
+				3928F9AE2BFC817300B02203 /* ProfileRouter.swift in Sources */,
 				39271F182BF4781C00D76F05 /* MyClassRow.swift in Sources */,
 				39271F432BF66E5E00D76F05 /* UserRouter.swift in Sources */,
 				39271F272BF48AA400D76F05 /* ViewModelType.swift in Sources */,

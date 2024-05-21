@@ -15,15 +15,20 @@ struct GetReviewModel: Decodable {
 }
 
 struct ReviewModel: Decodable {
+    let id = UUID()
     let post_id: String
     let product_id: String
+    let classTitle: String
     let review: String
+    let classID: String
     let reviewer: Reviewer
     
     enum CodingKeys: String, CodingKey {
         case post_id
         case product_id
+        case classTitle = "title"
         case review = "content"
+        case classID = "content1"
         case reviewer = "creator"
     }
 }

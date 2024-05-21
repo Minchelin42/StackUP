@@ -8,22 +8,23 @@
 import SwiftUI
 
 struct MyReviewRow: View {
-    
+    let title: String
+    let content: String
     let action: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text("3개월만에 실력이 확 늘어나는, 일러스트 강의").subtitleFont()
+                Text(title).subtitleFont().multilineTextAlignment(.leading)
                 Spacer()
-                Button {
-                    action()
-                } label: {
-                    Image(systemName: "ellipsis")
-                        .foregroundColor(MyColor.main)
-                }
+                
+                Image(systemName: "ellipsis")
+                    .foregroundColor(MyColor.main)
+                    .wrapToButton {
+                        action()
+                    }
             }
-            Text("입문용 강의로 적당하다고 생각합니다!! 완전 강추 드려요\n입문용 강의로 적당하다고 생각합니다!! 완전 강추 드려요\n입문용 강의로 적당하다고 생각합니다!! 완전 강추 드려요\n입문용 강의로 적당하다고 생각합니다!! 완전 강추 드려요")
+            Text(content)
                 .font(.system(size: 12))
                 .fontWeight(.regular)
                 .foregroundColor(MyColor.darkGray)
@@ -31,7 +32,3 @@ struct MyReviewRow: View {
         .padding(16)
     }
 }
-
-//#Preview {
-//    MyReviewRow()
-//}

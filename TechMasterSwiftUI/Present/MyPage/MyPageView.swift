@@ -14,6 +14,9 @@ enum MyPage: String, CaseIterable, Hashable {
 }
 
 struct MyPageView: View {
+    
+    @StateObject private var viewModel = MyPageViewModel()
+    
     var body: some View {
         NavigationView {
             List {
@@ -36,13 +39,23 @@ struct MyPageView: View {
                 }
                 
                 Section(header: Text("작성한 후기")) {
-                    MyReviewRow(action: { print("reviewRow Tapped") })
-                    MyReviewRow(action: { print("reviewRow Tapped") })
-                    MyReviewRow(action: { print("reviewRow Tapped") })
-                    MyReviewRow(action: { print("reviewRow Tapped") })
-                }.listRowInsets(EdgeInsets.init(top: 4, leading: 8, bottom: 4, trailing: 4))
-                
+                    ForEach(viewModel.output.review, id: \.id) { review in
+                        ScrollView {
+                            NavigationLink {
+                                NavigationLazyView(ClassDetailView(viewModel: ClassDetailViewModel(postID: review.classID)))
+                            } label: {
+                                MyReviewRow(title: review.classTitle, content: review.review) {
+                                    print("리뷰 클릭")
+                                }
+                            }
+                        }
+                    }
+                }
+                .listRowInsets(EdgeInsets.init(top: 4, leading: 8, bottom: 4, trailing: 4))
             }.listSectionSpacing(12)
+        }
+        .task {
+            viewModel.action(.loadMyProfileInfo)
         }
     }
 }

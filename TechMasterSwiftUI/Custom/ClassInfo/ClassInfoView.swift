@@ -14,8 +14,6 @@ enum ButtonAction: String {
 }
 
 struct ClassInfoView: View {
-
-    let buttonAction: ButtonAction
     
     @StateObject var viewModel: ClassInfoViewModel
     
@@ -35,13 +33,12 @@ struct ClassInfoView: View {
             }
         }
         
-        MainColorButton(title: buttonAction.rawValue, action: {
-            print("\(buttonAction.rawValue) 버튼 클릭")
-            viewModel.action(.togglePresent)
-        }, cornerRadius: 5, disabled: false).frame(height: 40)
-        .padding(.bottom, 12)
-        .navigationDestination(isPresented: $viewModel.isPresent) {
-            destination(buttonAction)
+        NavigationLink {
+            destination(viewModel.buttonAction)
+        } label: {
+            MainColorButton(title: viewModel.buttonAction.rawValue, cornerRadius: 5, disabled: false).frame(height: 40)
+                .disabled(true)
+            .padding(.bottom, 12)
         }
         
     }
@@ -54,7 +51,7 @@ extension ClassInfoView {
         case .payment:
             ContentView() //임시 전환 뷰
         case .transition:
-           ClassDetailView(viewModel: ClassDetailViewModel(postID: viewModel.classInfo.post_id))
+            ClassDetailView(viewModel: ClassDetailViewModel(postID: viewModel.classInfo.post_id))
         case .review:
             ContentView() //임시 전환 뷰
         }

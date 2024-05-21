@@ -19,15 +19,17 @@ final class ClassInfoViewModel: ViewModelType, LoadPostResult{
     
     var cancellables = Set<AnyCancellable>()
     var classInfo: ClassInfo
+    var buttonAction: ButtonAction
     
     @Published var nowStatus: Bool!
     @Published var isPresent: Bool = false
     
     var input = Input()
     var output = Output()
-    
-    init(classInfo: ClassInfo) {
+
+    init(classInfo: ClassInfo, buttonAction: ButtonAction) {
         self.classInfo = classInfo
+        self.buttonAction = buttonAction
         nowStatus = getNowScrapStatus(scrapList: classInfo.scrap)
         transform()
     }

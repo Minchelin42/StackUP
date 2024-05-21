@@ -58,6 +58,7 @@
 		3949FFB12BF9050C00C2496B /* MyClassListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FFB02BF9050C00C2496B /* MyClassListViewModel.swift */; };
 		3949FFB42BF9AB2200C2496B /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949FFB32BF9AB2200C2496B /* MyPageView.swift */; };
 		39D9E9B22BF9D63A000FA70A /* MyReviewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9E9B12BF9D63A000FA70A /* MyReviewRow.swift */; };
+		39D9E9B42BFB894F000FA70A /* ButtonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9E9B32BFB894F000FA70A /* ButtonWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,7 @@
 		3949FFB02BF9050C00C2496B /* MyClassListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClassListViewModel.swift; sourceTree = "<group>"; };
 		3949FFB32BF9AB2200C2496B /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		39D9E9B12BF9D63A000FA70A /* MyReviewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewRow.swift; sourceTree = "<group>"; };
+		39D9E9B32BFB894F000FA70A /* ButtonWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				39271F0D2BF34F6500D76F05 /* Image.swift */,
+				39D9E9B32BFB894F000FA70A /* ButtonWrapper.swift */,
 			);
 			path = CustomModifier;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				39271EF82BF3118200D76F05 /* MyColor.swift in Sources */,
 				39271F382BF4BDCB00D76F05 /* HTTPHeader.swift in Sources */,
 				39271F0E2BF34F6500D76F05 /* Image.swift in Sources */,
+				39D9E9B42BFB894F000FA70A /* ButtonWrapper.swift in Sources */,
 				39271F2F2BF4A3FA00D76F05 /* PostRouter.swift in Sources */,
 				39271F3B2BF4BE6D00D76F05 /* ClassModel.swift in Sources */,
 				39271F722BF7959600D76F05 /* IdValidationQuery.swift in Sources */,

@@ -18,7 +18,7 @@ struct MyClassRow: View {
                 .asLoadImage(cornerRadius: 0, height: 200)
                 .padding(.bottom, 8)
             
-            ClassInfoView(buttonAction: .transition, viewModel: ClassInfoViewModel(classInfo: item))
+            ClassInfoView(viewModel: ClassInfoViewModel(classInfo: item, buttonAction: .transition))
                 .padding(.bottom, 4)
         }
     }

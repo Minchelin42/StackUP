@@ -13,18 +13,16 @@ struct MyClassListView: View {
     @StateObject private var viewModel = MyClassListViewModel()
     
     var body: some View {
-        NavigationStack{
-            ScrollView {
-                LazyVGrid(columns: colums) {
-                    ForEach(viewModel.output.scrap, id: \.post_id) { item in
-                        MyClassRow(item: item)
-                    }
+        ScrollView {
+            LazyVGrid(columns: colums) {
+                ForEach(viewModel.output.scrap, id: \.post_id) { item in
+                    MyClassRow(item: item)
                 }
             }
-            .padding(.horizontal, 20)
-            .task {
-                viewModel.action(.getScrapList)
-            }
+        }
+        .padding(.horizontal, 20)
+        .task {
+            viewModel.action(.getScrapList)
         }
     }
 }

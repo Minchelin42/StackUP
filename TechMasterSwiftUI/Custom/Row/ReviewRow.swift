@@ -14,10 +14,7 @@ struct ReviewRow: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            MyImage.testImg
-                .resizable()
-                .clipShape(Circle())
-                .frame(width: 50, height: 50)
+            MyImage.testImg.makeProfileImg(size: 50)
             
             VStack(alignment: .leading) {
                 Text(nickname).subtitleFont()

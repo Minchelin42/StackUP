@@ -66,10 +66,7 @@ struct ProfileView: View {
     
     var body: some View {
         HStack {
-            MyImage.testImg
-                .resizable()
-                .clipShape(Circle())
-                .frame(width: 70, height: 70)
+            MyImage.testImg.makeProfileImg(size: 70)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(nick).blackMediumFont(size: 15)

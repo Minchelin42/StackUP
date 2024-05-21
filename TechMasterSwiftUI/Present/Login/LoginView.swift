@@ -20,12 +20,10 @@ struct LoginView: View {
                 MainColorUnderLineTF(text: $viewModel.password, placeholder: "Password")
                     .padding(.bottom, 24)
                 
-                MainColorButton(title: "로그인", action: {
-                    print("ID:", viewModel.id)
-                    print("Password:", viewModel.password)
-                    viewModel.action(.loginButtonTapped)
-//                    viewModel.alertPresent = true
-                }, cornerRadius: 10, disabled: false).frame(height: 40)
+                MainColorButton(title: "로그인", cornerRadius: 10, disabled: false).frame(height: 40)
+                    .wrapToButton(action: {
+                        viewModel.action(.loginButtonTapped)
+                    })
                     .alert(isPresented: $viewModel.alertPresent) {
                         Alert(title: Text(viewModel.output.alertMessage), message: nil,
                               dismissButton: .default(Text("확인"), action: {

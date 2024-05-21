@@ -17,10 +17,12 @@ struct JoinView: View {
                 //아이디 입력 및 중복확인
                 HStack(alignment: .bottom) {
                     MainColorUnderLineTF(text: $viewModel.id, placeholder: "ID")
-                    MainColorButton(title: "중복확인", action: {
-                        viewModel.action(.duplicateCheck)
-                    }, cornerRadius: 10, disabled: !viewModel.output.duplicateCheck)
+                    MainColorButton(title: "중복확인", cornerRadius: 10, disabled: !viewModel.output.duplicateCheck)
                     .frame(width: 80, height: 40)
+                    .wrapToButton {
+                        viewModel.action(.duplicateCheck)
+                    }
+                    .disabled(!viewModel.output.duplicateCheck)
                 }
                 Text(viewModel.output.idValid).mainMediumFont(size: 11).frame(height: 11)
                 
@@ -33,10 +35,12 @@ struct JoinView: View {
                 Text(viewModel.output.nickValid).mainMediumFont(size: 11).frame(height: 11).padding(.bottom, 20)
                 
                 //회원가입 버튼
-                MainColorButton(title: "회원가입", action: {
-                    viewModel.action(.joinButtonTapped)
-                }, cornerRadius: 10, disabled: !viewModel.output.joinAvailable)
+                MainColorButton(title: "회원가입", cornerRadius: 10, disabled: !viewModel.output.joinAvailable)
                 .frame(height: 40)
+                .wrapToButton {
+                    viewModel.action(.joinButtonTapped)
+                }
+                .disabled(!viewModel.output.joinAvailable)
                 .alert(isPresented: $viewModel.alertPresent) {
                     Alert(title: Text(viewModel.output.joinSuccess), message: Text(viewModel.output.alertMessage),
                           dismissButton: .default(Text("확인"), action: {

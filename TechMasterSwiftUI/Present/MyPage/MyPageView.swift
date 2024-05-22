@@ -22,9 +22,11 @@ struct MyPageView: View {
             List {
                 Section() {
                     NavigationLink {
-                        NavigationLazyView(ContentView())
+                        NavigationLazyView(EditProfileView(viewModel: EditProfileViewModel(nickname: viewModel.output.profile.nick, id: viewModel.output.profile.id, profileImg: viewModel.output.profile.profileImage)))
                     } label: {
-                        ProfileView(nick: "삼다수")
+                        if let profile = viewModel.output.profile{
+                            ProfileView(nick: profile.nick)
+                        }
                     }
                 }
                 

@@ -8,15 +8,10 @@
 import Foundation
 import Alamofire
 
-struct ProfileQuery: Encodable {
-    var nick: String
-    var profile: Data
-}
-
 enum ProfileRouter {
     case myProfile
     case getScraplist
-    case editProfile(query: ProfileQuery)
+    case editProfile
 }
 
 extension ProfileRouter: TargetType {

@@ -32,6 +32,7 @@ extension MyPageViewModel {
     }
     
     struct Output {
+        var profile: ProfileModel!
         var review: ReviewList = []
     }
     
@@ -81,7 +82,6 @@ extension MyPageViewModel {
                     }
                 } receiveValue: { [weak self] resultReview in
                     guard let self else { return }
-                    print("🍀🍀🍀🍀🍀🍀🍀", resultReview)
                     self.output.review.append(resultReview)
                 }
                 .store(in: &cancellables)
@@ -103,8 +103,8 @@ extension MyPageViewModel {
                     }
                 } receiveValue: { [weak self] resultProfile in
                     guard let self else { return }
-                    print("🩷🩷🩷🩷🩷", resultProfile)
                     self.input.loadReviewList.send(resultProfile.review)
+                    self.output.profile = resultProfile
                 }
                 .store(in: &cancellables)
         } catch {

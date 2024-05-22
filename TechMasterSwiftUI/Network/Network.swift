@@ -29,11 +29,25 @@ extension Network {
         return AF.request(try! router.asURLRequest())
             .publishDecodable(type: T.self)
             .value()
-            .mapError { _ in
+            .mapError { error in
                 NetworkError.unknownError
             }
             .eraseToAnyPublisher()
     }
-
     
+    func multipartAPICall<T: Decodable>(model: T.Type, router: TargetType, query: ProfileQuery) async throws -> AnyPublisher<T, NetworkError> {
+        
+        return AF.upload(multipartFormData: { multipartFormData in
+            if let nick = query.nick.data(using: .utf8) {
+                   multipartFormData.append(nick, withName: "nick")
+               }
+        }, with: try! router.asURLRequest())
+        .publishDecodable(type: T.self)
+        .value()
+        .mapError { error in
+            NetworkError.unknownError
+        }
+        .eraseToAnyPublisher()
+    }
 }
+

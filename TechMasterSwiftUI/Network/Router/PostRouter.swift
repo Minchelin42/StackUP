@@ -13,6 +13,7 @@ enum PostRouter {
     case getThisPost(id: String)
     case getScrapPost
     case scrap(postID: String, query: ScrapModel)
+    case searchPost(search: String)
 }
 
 extension PostRouter: TargetType {
@@ -30,6 +31,8 @@ extension PostRouter: TargetType {
             return .get
         case .scrap:
             return .post
+        case .searchPost:
+            return .get
         }
     }
     
@@ -43,12 +46,14 @@ extension PostRouter: TargetType {
             return "/posts/likes/me"
         case .scrap(let postID, _):
             return "/posts/\(postID)/like"
+        case .searchPost:
+            return "/posts/hashtags"
         }
     }
     
     var header: [String : String] {
         switch self {
-        case .getPost, .getThisPost, .getScrapPost:
+        case .getPost, .getThisPost, .getScrapPost, .searchPost:
             return [ HTTPHeader.sesacKey.rawValue : APIKey.sesacKey.rawValue,
                      HTTPHeader.authorization.rawValue : NowUser.accessToken]
         case .scrap:
@@ -66,6 +71,8 @@ extension PostRouter: TargetType {
         switch self {
         case .getPost(let productID):
             return [URLQueryItem(name: "product_id", value: productID)]
+        case .searchPost(let search):
+            return [URLQueryItem(name: "hashTag", value: search), URLQueryItem(name: "product_id", value: "")]
         default: return nil
         }
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MyClassListView: View {
     
-    var colums: [GridItem] = Array(repeating: GridItem(.flexible()), count: 1)
+    private var colums: [GridItem] = Array(repeating: GridItem(.flexible()), count: 1)
     @StateObject private var viewModel = MyClassListViewModel()
     
     var body: some View {

@@ -10,7 +10,7 @@ import SwiftUI
 @MainActor
 struct ClassDetailView: View {
 
-    @StateObject var viewModel = ClassDetailViewModel(postID: "")
+    @StateObject var viewModel: ClassDetailViewModel
     
     var body: some View {
         ScrollView {

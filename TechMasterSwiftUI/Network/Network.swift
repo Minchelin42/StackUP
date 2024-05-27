@@ -15,7 +15,7 @@ enum NetworkError: Error {
     case unknownError
 }
 
-class Network {
+final class Network {
     
     static let shared = Network()
     private init() { }

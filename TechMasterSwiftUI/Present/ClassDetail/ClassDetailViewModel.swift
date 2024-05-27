@@ -13,7 +13,7 @@ protocol LoadThisPost: AnyObject {
 }
 
 @MainActor
-class ClassDetailViewModel: ViewModelType, LoadThisPost {
+final class ClassDetailViewModel: ViewModelType, LoadThisPost {
 
     var cancellables = Set<AnyCancellable>()
     

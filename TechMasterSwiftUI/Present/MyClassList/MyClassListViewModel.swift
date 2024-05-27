@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 @MainActor
-class MyClassListViewModel: ViewModelType {
+final class MyClassListViewModel: ViewModelType {
     
     var cancellables = Set<AnyCancellable>()
     

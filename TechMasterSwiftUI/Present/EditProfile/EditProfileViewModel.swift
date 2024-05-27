@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 @MainActor
-class EditProfileViewModel: ViewModelType {
+final class EditProfileViewModel: ViewModelType {
 
     @Published var nickname: String
     @Published var id: String

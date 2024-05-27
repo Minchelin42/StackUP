@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 @MainActor
-class MyPageViewModel: ViewModelType {
+final class MyPageViewModel: ViewModelType {
     
     var cancellables = Set<AnyCancellable>()
     
@@ -103,6 +103,7 @@ extension MyPageViewModel {
                     }
                 } receiveValue: { [weak self] resultProfile in
                     guard let self else { return }
+                    self.output.review.removeAll()
                     self.input.loadReviewList.send(resultProfile.review)
                     self.output.profile = resultProfile
                 }

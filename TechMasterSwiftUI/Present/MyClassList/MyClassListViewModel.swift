@@ -57,7 +57,7 @@ extension MyClassListViewModel {
     
     func getScrapList() async {
         do {
-            try await Network.shared.myAPICall(model: GetScrapModel.self, router: PostRouter.getScrapPost)
+            try await Network.shared.myAPICall(model: ClassListResponseDTO.self, router: PostRouter.getScrapPost)
                 .sink(receiveCompletion: { result in
                     switch result{
                     case .finished:
@@ -66,8 +66,9 @@ extension MyClassListViewModel {
                         print("Fetch Failed")
                         print(result.self)
                     }
-                }, receiveValue: { resultScrap in
-                    self.output.scrap = resultScrap.data
+                }, receiveValue: { result in
+                    let resultScrap = result.toDomain()
+                    self.output.scrap = resultScrap
                     dump(self.output.scrap)
                 }).store(in: &cancellables)
         } catch {

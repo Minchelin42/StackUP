@@ -62,7 +62,7 @@ extension EditProfileViewModel {
     
     func editProfile(query: ProfileQuery) async {
         do {
-            try await Network.shared.multipartAPICall(model: ProfileModel.self, router: ProfileRouter.editProfile, query: query)
+            try await Network.shared.multipartAPICall(model: ProfileResponseDTO.self, router: ProfileRouter.editProfile, query: query)
                 .sink { result in
                     switch result{
                     case .finished:

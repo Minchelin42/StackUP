@@ -64,7 +64,7 @@ extension ClassDetailViewModel {
     
     func fetchPost() async {
         do {
-            try await Network.shared.myAPICall(model: ClassModel.self, router: PostRouter.getThisPost(id: self.postID))
+            try await Network.shared.myAPICall(model: ThisClassResponseDTO.self, router: PostRouter.getThisPost(id: self.postID))
                 .sink(receiveCompletion: { result in
                     switch result{
                     case .finished:
@@ -73,7 +73,7 @@ extension ClassDetailViewModel {
                         print("Fetch Failed")
                     }
                 }, receiveValue: { resultPost in
-                    self.output.post = resultPost
+                    self.output.post = resultPost.toDomain()
                 }).store(in: &cancellables)
         } catch {
             print("실패~")

@@ -63,7 +63,7 @@ extension ClassReviewInfoViewModel {
     
     func fetchReview() async {
         do {
-            try await Network.shared.myAPICall(model: GetReviewModel.self, router: PostRouter.getPost(productID: "\(postID)_review"))
+            try await Network.shared.myAPICall(model: ReviewListResponseDTO.self, router: PostRouter.getPost(productID: "\(postID)_review"))
                 .sink(receiveCompletion: { result in
                     switch result{
                     case .finished:
@@ -72,7 +72,7 @@ extension ClassReviewInfoViewModel {
                         print("Fetch Failed")
                     }
                 }, receiveValue: { resultPost in
-                    self.output.review = resultPost.data
+                    self.output.review = resultPost.toDomain()
                 }).store(in: &cancellables)
         } catch {
             output.review = []

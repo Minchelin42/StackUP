@@ -66,7 +66,7 @@ extension LoginViewModel {
       
     func login(query: LoginQuery) async {
         do {
-            try await Network.shared.myAPICall(model: LoginModel.self, router: UserRouter.login(query: query))
+            try await Network.shared.myAPICall(model: LoginResponseDTO.self, router: UserRouter.login(query: query))
                 .sink(receiveCompletion: { result in
                     switch result{
                     case .finished:
@@ -79,8 +79,9 @@ extension LoginViewModel {
                         self.output.alertMessage = "로그인 정보를 다시 확인해주세요"
                         self.alertPresent = true
                     }
-                }, receiveValue: { [weak self] result in
+                }, receiveValue: { [weak self] response in
                     guard let self else { return }
+                    let result = response.toDomain()
                     self.output.alertMessage = "환영합니다 \(result.nick)님"
                     NowUser.userID = result.user_id
                     NowUser.accessToken = result.accessToken

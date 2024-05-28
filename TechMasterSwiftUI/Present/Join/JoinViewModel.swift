@@ -224,7 +224,7 @@ extension JoinViewModel {
                 }, receiveValue: { [weak self] resultPost in
                     guard let self else { return }
                     self.output.joinSuccess = "회원가입 완료"
-                    self.output.alertMessage = "\(self.nickname)님\n가입을 축하드립니다!"
+                    self.output.alertMessage = "\(resultPost.nick)님\n가입을 축하드립니다!"
                     self.alertPresent = true
                 }).store(in: &cancellables)
         } catch {

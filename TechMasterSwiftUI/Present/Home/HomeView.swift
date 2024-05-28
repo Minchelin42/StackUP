@@ -96,7 +96,7 @@ struct NewClass: View {
                     NavigationLink {
                         NavigationLazyView(ClassDetailView(viewModel: ClassDetailViewModel(postID: item.post_id)))
                     } label: {
-                        ClassRow(item: item, titleSize: 10).frame(maxWidth: 130)
+                        ClassRow(item: item.toDomain(), titleSize: 10).frame(maxWidth: 130)
                     }
                 }
             }

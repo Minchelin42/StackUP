@@ -16,7 +16,7 @@ struct MyClassListView: View {
         ScrollView {
             LazyVGrid(columns: colums) {
                 ForEach(viewModel.output.scrap, id: \.post_id) { item in
-                    MyClassRow(item: item)
+                    MyClassRow(item: item.toDomain())
                 }
             }
         }

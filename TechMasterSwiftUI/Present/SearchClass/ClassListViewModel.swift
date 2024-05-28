@@ -90,7 +90,7 @@ extension ClassListViewModel {
     
     func fetchSearchClass(search: String) async {
         do {
-            try await Network.shared.myAPICall(model: GetClassModel.self, router: PostRouter.searchPost(search: search))
+            try await Network.shared.myAPICall(model: ClassListResponseDTO.self, router: PostRouter.searchPost(search: search))
                 .sink(receiveCompletion: { result in
                     switch result{
                     case .finished:
@@ -99,8 +99,9 @@ extension ClassListViewModel {
                         print("Fetch Failed")
                         print(result.self)
                     }
-                }, receiveValue: { resultPost in
-                    self.output.post = resultPost.data
+                }, receiveValue: { result in
+                    let resultPost = result.toDomain()
+                    self.output.post = resultPost
                 }).store(in: &cancellables)
         } catch {
             output.post = []

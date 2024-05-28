@@ -32,7 +32,7 @@ struct ClassListView: View {
                             NavigationLink {
                                 NavigationLazyView(ClassDetailView(viewModel: ClassDetailViewModel(postID: item.post_id)))
                             } label: {
-                                ClassRow(item: item, titleSize: 13)
+                                ClassRow(item: item.toDomain(), titleSize: 13)
                             }
                             
                         }

@@ -58,7 +58,7 @@ extension HomeViewModel {
     
     func fetchPost() async {
         do {
-            try await Network.shared.myAPICall(model: GetClassModel.self, router: PostRouter.getPost(productID: ""))
+            try await Network.shared.myAPICall(model: ClassListResponseDTO.self, router: PostRouter.getPost(productID: ""))
                 .sink(receiveCompletion: { result in
                     switch result{
                     case .finished:
@@ -67,8 +67,9 @@ extension HomeViewModel {
                         print("Fetch Failed")
                         print(result.self)
                     }
-                }, receiveValue: { resultPost in
-                    self.output.post = resultPost.data
+                }, receiveValue: { result in
+                    let resultPost = result.toDomain()
+                    self.output.post = resultPost
                 }).store(in: &cancellables)
         } catch {
             output.post = []

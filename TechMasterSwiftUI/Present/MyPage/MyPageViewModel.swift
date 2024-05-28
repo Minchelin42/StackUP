@@ -33,7 +33,7 @@ extension MyPageViewModel {
     
     struct Output {
         var profile: ProfileModel!
-        var review: ReviewList = []
+        var review: [ReviewModel] = []
     }
     
     enum Action {
@@ -71,7 +71,7 @@ extension MyPageViewModel {
     
     func fetchReview(id: String) async {
         do {
-            try await Network.shared.myAPICall(model: ReviewModel.self, router: PostRouter.getThisPost(id: id))
+            try await Network.shared.myAPICall(model: ThisReviewResponseDTO.self, router: PostRouter.getThisPost(id: id))
                 .sink { result in
                     switch result{
                     case .finished:
@@ -82,7 +82,7 @@ extension MyPageViewModel {
                     }
                 } receiveValue: { [weak self] resultReview in
                     guard let self else { return }
-                    self.output.review.append(resultReview)
+                    self.output.review.append(resultReview.toDomain())
                 }
                 .store(in: &cancellables)
         } catch {
@@ -92,7 +92,7 @@ extension MyPageViewModel {
     
     func fetchProfile() async {
         do {
-            try await Network.shared.myAPICall(model: ProfileModel.self, router: ProfileRouter.myProfile)
+            try await Network.shared.myAPICall(model: ProfileResponseDTO.self, router: ProfileRouter.myProfile)
                 .sink { result in
                     switch result{
                     case .finished:
@@ -105,7 +105,7 @@ extension MyPageViewModel {
                     guard let self else { return }
                     self.output.review.removeAll()
                     self.input.loadReviewList.send(resultProfile.review)
-                    self.output.profile = resultProfile
+                    self.output.profile = resultProfile.toDomain()
                 }
                 .store(in: &cancellables)
         } catch {

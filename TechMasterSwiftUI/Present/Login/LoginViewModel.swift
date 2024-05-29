@@ -14,7 +14,6 @@ final class LoginViewModel: ViewModelType {
     @Published var id = ""
     @Published var password = ""
     
-    @Published var classViewPresent = false
     @Published var alertPresent: Bool = false
 
     var cancellables = Set<AnyCancellable>()

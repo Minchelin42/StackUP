@@ -16,10 +16,14 @@ struct NowUser {
     
     @UserDefaultManager(key: UDKey.refreshToken.rawValue, defaultValue: "")
     static var refreshToken: String
+    
+    @UserDefaultManager(key: UDKey.isLogin.rawValue, defaultValue: false)
+    static var isLogin: Bool
 }
 
 enum UDKey: String {
     case userID = "userID"
     case accessToken = "accessToken"
     case refreshToken = "refreshToken"
+    case isLogin = "isLogin"
 }

@@ -10,9 +10,13 @@ import SwiftUI
 struct LoginView: View {
     
     @StateObject private var viewModel = LoginViewModel()
+    @StateObject var router = Router()
+    @EnvironmentObject private var appRootManager: AppRootManager
+    
     @State var isPresent = false
+    
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $router.route) {
             VStack() {
                 
                 MainColorUnderLineTF(text: $viewModel.id, placeholder: "ID")
@@ -28,24 +32,35 @@ struct LoginView: View {
                         Alert(title: Text(viewModel.output.alertMessage), message: nil,
                               dismissButton: .default(Text("확인"), action: {
                             if viewModel.output.loginSuccess {
-                                viewModel.classViewPresent = true
+                                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                                    withAnimation(.spring()) {
+                                        appRootManager.currentRoot = .home
+                                    }
+                                    NowUser.isLogin = true
+                                    viewModel.id.removeAll()
+                                    viewModel.password.removeAll()
+                                }
                             }
                         }))}
                 
+                
                 MainColorBorderButton(title: "회원가입", action: {
-                    print("회원가입")
+                    print("회원가입 뷰로 이동")
                     isPresent.toggle()
+                    router.push(view: NextView.joinView)
+                    
                 }, cornerRadius: 10).frame(height: 40)
-                    .navigationDestination(isPresented: $isPresent) {
-                        JoinView()
-                    }
+                
             }//VStack
+            .navigationDestination(for: NextView.self) { type in
+                FeatureView(type: type)
+            }
             .padding(.horizontal, 50)
-        }.fullScreenCover(isPresented: $viewModel.classViewPresent) {
-            ClassListView()
-        }         
+        }
     }
 }
+
+
 
 #Preview {
     LoginView()

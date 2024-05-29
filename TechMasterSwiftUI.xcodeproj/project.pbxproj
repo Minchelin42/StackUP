@@ -78,6 +78,7 @@
 		39730DF02C05BEDC006307E7 /* ThisClassResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39730DEF2C05BEDC006307E7 /* ThisClassResponseDTO.swift */; };
 		39730DF22C05C25C006307E7 /* ThisReviewResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39730DF12C05C25C006307E7 /* ThisReviewResponseDTO.swift */; };
 		39730DF52C0637A1006307E7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39730DF42C0637A1006307E7 /* Router.swift */; };
+		39CCBDEB2C070CF1007F55E7 /* AppRootManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CCBDEA2C070CF1007F55E7 /* AppRootManager.swift */; };
 		39D9E9B22BF9D63A000FA70A /* MyReviewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9E9B12BF9D63A000FA70A /* MyReviewRow.swift */; };
 		39D9E9B42BFB894F000FA70A /* ButtonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9E9B32BFB894F000FA70A /* ButtonWrapper.swift */; };
 /* End PBXBuildFile section */
@@ -155,6 +156,7 @@
 		39730DEF2C05BEDC006307E7 /* ThisClassResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisClassResponseDTO.swift; sourceTree = "<group>"; };
 		39730DF12C05C25C006307E7 /* ThisReviewResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisReviewResponseDTO.swift; sourceTree = "<group>"; };
 		39730DF42C0637A1006307E7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		39CCBDEA2C070CF1007F55E7 /* AppRootManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootManager.swift; sourceTree = "<group>"; };
 		39D9E9B12BF9D63A000FA70A /* MyReviewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewRow.swift; sourceTree = "<group>"; };
 		39D9E9B32BFB894F000FA70A /* ButtonWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -375,7 +377,7 @@
 		3940209E2BF30CCC00E824C3 /* TechMasterSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				39730DF32C063784006307E7 /* NavigationRouter */,
+				39730DF32C063784006307E7 /* Navigation */,
 				3949FFA12BF85AD100C2496B /* UserDefaults */,
 				39271F322BF4AB1600D76F05 /* Info.plist */,
 				39271F282BF4977800D76F05 /* Network */,
@@ -467,12 +469,13 @@
 			path = DataMapping;
 			sourceTree = "<group>";
 		};
-		39730DF32C063784006307E7 /* NavigationRouter */ = {
+		39730DF32C063784006307E7 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				39730DF42C0637A1006307E7 /* Router.swift */,
+				39CCBDEA2C070CF1007F55E7 /* AppRootManager.swift */,
 			);
-			path = NavigationRouter;
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,6 +600,7 @@
 				39271F3B2BF4BE6D00D76F05 /* ClassModel.swift in Sources */,
 				39271F722BF7959600D76F05 /* IdValidationQuery.swift in Sources */,
 				39730DD12BFDD867006307E7 /* BorderClassRow.swift in Sources */,
+				39CCBDEB2C070CF1007F55E7 /* AppRootManager.swift in Sources */,
 				39271F742BF795AD00D76F05 /* LoginQuery.swift in Sources */,
 				39271F2A2BF4978300D76F05 /* Network.swift in Sources */,
 				39271F362BF4BCEA00D76F05 /* APIKey.swift in Sources */,

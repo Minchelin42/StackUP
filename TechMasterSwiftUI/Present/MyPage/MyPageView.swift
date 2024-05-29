@@ -11,12 +11,16 @@ enum MyPage: String, CaseIterable, Hashable {
     case scrap = "찜한 강의"
     case course = "수강신청 내역"
     case customerService = "고객센터"
+    case logout = "로그아웃"
 }
 
 struct MyPageView: View {
     
     @StateObject private var router = Router()
     @StateObject private var viewModel = MyPageViewModel()
+    @EnvironmentObject private var appRootManager: AppRootManager
+    
+    @State var alertPresent = false
     
     var body: some View {
         NavigationStack(path: $router.route) {
@@ -31,8 +35,23 @@ struct MyPageView: View {
                 
                 Section() {
                     ForEach(MyPage.allCases, id: \.self) { myPage in
-                        Text(myPage.rawValue).blackMediumFont(size: 13).wrapToButton {
-                            router.push(view: destination(myPage))
+                        if myPage.rawValue != "로그아웃" {
+                            Text(myPage.rawValue).blackMediumFont(size: 13).wrapToButton {
+                                router.push(view: destination(myPage))
+                            }
+                        } else {
+                            Text(myPage.rawValue).font(.system(size: 13, weight: .medium)).foregroundStyle(Color.red).wrapToButton {
+                                self.alertPresent.toggle()
+                            }.alert(isPresented: $alertPresent) {
+                                Alert(title: Text("로그아웃 하시겠습니까?"), message: nil,
+                                      primaryButton: .destructive(Text("확인"), action: {
+                                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                                        withAnimation(.spring()) {
+                                            appRootManager.currentRoot = .login
+                                        }
+                                        NowUser.isLogin = false
+                                    }
+                                }), secondaryButton: .cancel(Text("취소")))}
                         }
                     }
                 }
@@ -92,6 +111,7 @@ extension MyPageView {
             NextView.scrapListView
         case .customerService:
             NextView.contentView
+        default: NextView.contentView
         }
     }
 }

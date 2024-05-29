@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MyClassRow: View {
-    
+    @EnvironmentObject var router: Router
     let item: ClassModel
     
     var body: some View {
@@ -18,7 +18,9 @@ struct MyClassRow: View {
                 .asLoadImage(cornerRadius: 0, height: 200)
                 .padding(.bottom, 8)
             
-            ClassInfoView(viewModel: ClassInfoViewModel(classInfo: item, buttonAction: .transition))
+            ClassInfoView(viewModel: ClassInfoViewModel(classInfo: item, buttonType: .transition), buttonAction: {
+                router.push(view: NextView.classDetailView(postID: item.post_id))
+            })
                 .padding(.bottom, 4)
         }
     }

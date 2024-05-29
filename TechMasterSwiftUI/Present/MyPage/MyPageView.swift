@@ -15,27 +15,24 @@ enum MyPage: String, CaseIterable, Hashable {
 
 struct MyPageView: View {
     
+    @StateObject private var router = Router()
     @StateObject private var viewModel = MyPageViewModel()
     
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $router.route) {
             List {
                 Section() {
-                    NavigationLink {
-                        NavigationLazyView(EditProfileView(viewModel: EditProfileViewModel(nickname: viewModel.output.profile.nick, id: viewModel.output.profile.id, profileImg: viewModel.output.profile.profileImage)))
-                    } label: {
-                        if let profile = viewModel.output.profile{
-                            ProfileView(nick: profile.nick)
+                    if let profile = viewModel.output.profile {
+                        ProfileView(nick: profile.nick).wrapToButton {
+                            router.push(view: NextView.editProfileView(nick: viewModel.output.profile.nick, id: viewModel.output.profile.id, profileImg: viewModel.output.profile.profileImage))
                         }
                     }
                 }
                 
                 Section() {
                     ForEach(MyPage.allCases, id: \.self) { myPage in
-                        NavigationLink {
-                            destination(myPage)
-                        } label: {
-                            Text(myPage.rawValue).blackMediumFont(size: 13)
+                        Text(myPage.rawValue).blackMediumFont(size: 13).wrapToButton {
+                            router.push(view: destination(myPage))
                         }
                     }
                 }
@@ -43,22 +40,27 @@ struct MyPageView: View {
                 Section(header: Text("작성한 후기")) {
                     ForEach(viewModel.output.review, id: \.id) { review in
                         ScrollView {
-                            NavigationLink {
-                                NavigationLazyView(ClassDetailView(viewModel: ClassDetailViewModel(postID: review.classID)))
-                            } label: {
-                                MyReviewRow(title: review.classTitle, content: review.review) {
-                                    print("리뷰 클릭")
-                                }
+                            MyReviewRow(title: review.classTitle, content: review.review) {
+                                print("리뷰 클릭")
+                            }.wrapToButton {
+                                router.push(view: NextView.classDetailView(postID: review.classID))
                             }
                         }
                     }
                 }
                 .listRowInsets(EdgeInsets.init(top: 4, leading: 8, bottom: 4, trailing: 4))
-            }.listSectionSpacing(12)
+            }
+            .task {
+                viewModel.action(.loadMyProfileInfo)
+            }
+            .navigationDestination(for: NextView.self) { type in
+                FeatureView(type: type)
+                    .environmentObject(router)
+            }
+//            }.listSectionSpacing(12)
         }
-        .task {
-            viewModel.action(.loadMyProfileInfo)
-        }
+
+
     }
 }
 
@@ -82,15 +84,14 @@ struct ProfileView: View {
 }
 
 extension MyPageView {
-    @ViewBuilder
-    private func destination(_ destination: MyPage) -> some View {
+    private func destination(_ destination: MyPage) -> NextView {
         switch destination {
         case .scrap:
-            NavigationLazyView(MyClassListView())
+            NextView.scrapListView
         case .course:
-            NavigationLazyView(MyClassListView())
+            NextView.scrapListView
         case .customerService:
-            ContentView() //나중에 채팅 뷰로 연결
+            NextView.contentView
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum ButtonAction: String {
+enum ButtonType: String {
     case payment = "수강하기"
     case transition = "자세히 보기"
     case review = "수강 후기 작성"
@@ -15,10 +15,11 @@ enum ButtonAction: String {
 
 struct ClassInfoView: View {
     
+    @EnvironmentObject var router: Router
     @StateObject var viewModel: ClassInfoViewModel
+    var buttonAction: () -> Void
     
     var body: some View {
-        
         HStack(alignment: .top) {
             ScrapButton(isScrap: $viewModel.nowStatus) {
                 print("Scrap 했음")
@@ -33,28 +34,10 @@ struct ClassInfoView: View {
             }
         }
         
-        NavigationLink {
-            destination(viewModel.buttonAction)
-        } label: {
-            MainColorButton(title: viewModel.buttonAction.rawValue, cornerRadius: 5, disabled: false).frame(height: 40)
-                .disabled(true)
-            .padding(.bottom, 12)
+        MainColorButton(title: viewModel.buttonType.rawValue, cornerRadius: 5, disabled: false).frame(height: 40).wrapToButton {
+            buttonAction()
         }
-        
     }
 }
 
-extension ClassInfoView {
-    @ViewBuilder
-    private func destination(_ destination: ButtonAction) -> some View {
-        switch destination {
-        case .payment:
-            ContentView() //임시 전환 뷰
-        case .transition:
-            ClassDetailView(viewModel: ClassDetailViewModel(postID: viewModel.classInfo.post_id))
-        case .review:
-            ContentView() //임시 전환 뷰
-        }
-    }
-}
 

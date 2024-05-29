@@ -11,28 +11,31 @@ import SwiftUI
 struct ClassDetailView: View {
 
     @StateObject var viewModel: ClassDetailViewModel
-    
+    @EnvironmentObject var router: Router
+ 
     var body: some View {
-        ScrollView {
-            if let item = viewModel.output.post {
-                VStack(alignment: .leading) {
-                    MyImage.testImg
-                        .resizable()
-                        .asLoadImage(cornerRadius: 25, height: 230)
-                        .padding(.bottom, 8)
-                    ClassInfoView(viewModel: ClassInfoViewModel(classInfo: viewModel.output.post, buttonAction: .payment))
+            ScrollView {
+                if let item = viewModel.output.post {
+                    VStack(alignment: .leading) {
+                        MyImage.testImg
+                            .resizable()
+                            .asLoadImage(cornerRadius: 25, height: 230)
+                            .padding(.bottom, 8)
+                        ClassInfoView(viewModel: ClassInfoViewModel(classInfo: viewModel.output.post, buttonType: .payment), buttonAction: {
+                            router.push(view: NextView.contentView)
+                        })
                         .padding(.bottom, 4)
-                    
-                    classIntroductionView(intro: item.classIntro)
-                    
-                    ClassReviewInfoView(viewModel: ClassReviewInfoViewModel(postID: item.post_id))
-                }
-                .padding(.horizontal, 20)
-            }//if let
-        }//ScrollView
-        .task {
-            viewModel.action(.viewOnAppear)
-        }
+                        
+                        classIntroductionView(intro: item.classIntro)
+                        
+                        ClassReviewInfoView(viewModel: ClassReviewInfoViewModel(postID: item.post_id))
+                    }
+                    .padding(.horizontal, 20)
+                }//if let
+            }//ScrollView
+            .task {
+                viewModel.action(.viewOnAppear)
+            }
     }
     
     @ViewBuilder

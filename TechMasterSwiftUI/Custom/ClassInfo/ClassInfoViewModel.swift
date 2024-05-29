@@ -11,7 +11,7 @@ import Combine
 typealias ClassInfo = ClassModel
 
 protocol LoadPostResult: AnyObject {
-    var classInfo: ClassInfo {get set}
+    var classInfo: ClassInfo { get set }
 }
 
 @MainActor
@@ -19,7 +19,7 @@ final class ClassInfoViewModel: ViewModelType, LoadPostResult{
     
     var cancellables = Set<AnyCancellable>()
     var classInfo: ClassInfo
-    var buttonAction: ButtonAction
+    var buttonType: ButtonType
     
     @Published var nowStatus: Bool!
     @Published var isPresent: Bool = false
@@ -27,9 +27,9 @@ final class ClassInfoViewModel: ViewModelType, LoadPostResult{
     var input = Input()
     var output = Output()
 
-    init(classInfo: ClassInfo, buttonAction: ButtonAction) {
+    init(classInfo: ClassInfo, buttonType: ButtonType) {
         self.classInfo = classInfo
-        self.buttonAction = buttonAction
+        self.buttonType = buttonType
         nowStatus = getNowScrapStatus(scrapList: classInfo.scrap)
         transform()
     }

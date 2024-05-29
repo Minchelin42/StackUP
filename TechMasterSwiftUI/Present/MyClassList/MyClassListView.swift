@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MyClassListView: View {
     
+    @EnvironmentObject var router: Router
     private var colums: [GridItem] = Array(repeating: GridItem(.flexible()), count: 1)
     @StateObject private var viewModel = MyClassListViewModel()
     
@@ -16,7 +17,7 @@ struct MyClassListView: View {
         ScrollView {
             LazyVGrid(columns: colums) {
                 ForEach(viewModel.output.scrap, id: \.post_id) { item in
-                    MyClassRow(item: item.toDomain())
+                    MyClassRow(item: item.toDomain()).environmentObject(router)
                 }
             }
         }

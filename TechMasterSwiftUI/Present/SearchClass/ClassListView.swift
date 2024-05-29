@@ -10,16 +10,17 @@ import SwiftUI
 struct ClassListView: View {
     
     @StateObject private var viewModel = ClassListViewModel()
+    @StateObject private var router = Router()
     private var colums: [GridItem] = Array(repeating: GridItem(.flexible()), count: 2)
     
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $router.route) {
             ScrollView {
                 SearchBar(isSearching: $viewModel.output.isSearching, text: $viewModel.search, endEditingAction: {
                     viewModel.action(.searchClass)
                 }, editingAction: {
                     viewModel.action(.removeOutput)
-                }).padding(10)
+                }).padding(.vertical, 10)
                 
                 if viewModel.recommandVisiable() {
                     SearchRecommandView { word in
@@ -29,16 +30,18 @@ struct ClassListView: View {
                 } else {
                     LazyVGrid(columns: colums) {
                         ForEach(viewModel.output.post, id: \.post_id) { item in
-                            NavigationLink {
-                                NavigationLazyView(ClassDetailView(viewModel: ClassDetailViewModel(postID: item.post_id)))
-                            } label: {
-                                ClassRow(item: item.toDomain(), titleSize: 13)
+                            ClassRow(item: item.toDomain(), titleSize: 13).wrapToButton {
+                                router.push(view: NextView.classDetailView(postID: item.post_id))
                             }
                             
                         }
                     }
                 }
-            }.padding(.horizontal, 20)
+            }
+            .padding(.horizontal, 20)
+            .navigationDestination(for: NextView.self) { type in
+                FeatureView(type: type)
+            }
         }
     }
 }

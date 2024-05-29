@@ -77,6 +77,7 @@
 		39730DEE2C05B791006307E7 /* ClassListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39730DED2C05B791006307E7 /* ClassListResponseDTO.swift */; };
 		39730DF02C05BEDC006307E7 /* ThisClassResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39730DEF2C05BEDC006307E7 /* ThisClassResponseDTO.swift */; };
 		39730DF22C05C25C006307E7 /* ThisReviewResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39730DF12C05C25C006307E7 /* ThisReviewResponseDTO.swift */; };
+		39730DF52C0637A1006307E7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39730DF42C0637A1006307E7 /* Router.swift */; };
 		39D9E9B22BF9D63A000FA70A /* MyReviewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9E9B12BF9D63A000FA70A /* MyReviewRow.swift */; };
 		39D9E9B42BFB894F000FA70A /* ButtonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9E9B32BFB894F000FA70A /* ButtonWrapper.swift */; };
 /* End PBXBuildFile section */
@@ -153,6 +154,7 @@
 		39730DED2C05B791006307E7 /* ClassListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassListResponseDTO.swift; sourceTree = "<group>"; };
 		39730DEF2C05BEDC006307E7 /* ThisClassResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisClassResponseDTO.swift; sourceTree = "<group>"; };
 		39730DF12C05C25C006307E7 /* ThisReviewResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisReviewResponseDTO.swift; sourceTree = "<group>"; };
+		39730DF42C0637A1006307E7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		39D9E9B12BF9D63A000FA70A /* MyReviewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewRow.swift; sourceTree = "<group>"; };
 		39D9E9B32BFB894F000FA70A /* ButtonWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -373,6 +375,7 @@
 		3940209E2BF30CCC00E824C3 /* TechMasterSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				39730DF32C063784006307E7 /* NavigationRouter */,
 				3949FFA12BF85AD100C2496B /* UserDefaults */,
 				39271F322BF4AB1600D76F05 /* Info.plist */,
 				39271F282BF4977800D76F05 /* Network */,
@@ -462,6 +465,14 @@
 				39730DF12C05C25C006307E7 /* ThisReviewResponseDTO.swift */,
 			);
 			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		39730DF32C063784006307E7 /* NavigationRouter */ = {
+			isa = PBXGroup;
+			children = (
+				39730DF42C0637A1006307E7 /* Router.swift */,
+			);
+			path = NavigationRouter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,6 +568,7 @@
 				3928F9B02BFC823700B02203 /* ProfileModel.swift in Sources */,
 				39271F772BF796FD00D76F05 /* LoginViewModel.swift in Sources */,
 				3928F9AC2BFC7D1800B02203 /* MyPageViewModel.swift in Sources */,
+				39730DF52C0637A1006307E7 /* Router.swift in Sources */,
 				3949FFA62BF8679500C2496B /* ClassInfoViewModel.swift in Sources */,
 				3949FFA32BF85EEF00C2496B /* NowUser.swift in Sources */,
 				39730DE12C059C0F006307E7 /* ProfileResponseDTO.swift in Sources */,

@@ -10,8 +10,8 @@ import Combine
 
 @MainActor
 final class HomeViewModel: ViewModelType {
-    @Published var search = ""
-    
+
+    var homeRepository: DataRepository
     var cancellables = Set<AnyCancellable>()
     
     var input = Input()
@@ -19,12 +19,14 @@ final class HomeViewModel: ViewModelType {
     @Published
     var output = Output()
 
-    init() {
+    init(homeRepository: DataRepository = HomeRepository()) {
+        self.homeRepository = homeRepository
         transform()
     }
 }
 
 extension HomeViewModel {
+    
     struct Input {
         var loadClass = PassthroughSubject<Void, Never>()
     }
@@ -48,32 +50,12 @@ extension HomeViewModel {
         input.loadClass
             .sink { [weak self] _ in
                 guard let self else { return }
-                Task {
-                    await self.fetchPost()
+                homeRepository.fetchData { result in
+                    print("homeRepository를 이용해서 클래스 목록을 불러오고있음")
+                    self.output.post = result
                 }
             }
             .store(in: &cancellables)
     }
-
     
-    func fetchPost() async {
-        do {
-            try await Network.shared.myAPICall(model: ClassListResponseDTO.self, router: PostRouter.getPost(productID: ""))
-                .sink(receiveCompletion: { result in
-                    switch result{
-                    case .finished:
-                        print("Fetch Success")
-                    case .failure:
-                        print("Fetch Failed")
-                        print(result.self)
-                    }
-                }, receiveValue: { result in
-                    let resultPost = result.toDomain()
-                    self.output.post = resultPost
-                }).store(in: &cancellables)
-        } catch {
-            output.post = []
-        }
-    }
-
 }

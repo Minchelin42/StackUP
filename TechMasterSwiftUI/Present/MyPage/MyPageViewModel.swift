@@ -10,21 +10,27 @@ import Combine
 
 @MainActor
 final class MyPageViewModel: ViewModelType {
-    
+
     var cancellables = Set<AnyCancellable>()
+    
+    var profileRepository: DataRepository
+    var reviewRepository: DataRepository
     
     var input = Input()
 
     @Published
     var output = Output()
 
-    init() {
+    init(profileRepository: DataRepository = ProfileRepository(),
+         reviewRepository: DataRepository = ReviewRepository()) {
+        self.profileRepository = profileRepository
+        self.reviewRepository = reviewRepository
         transform()
     }
 }
 
-
 extension MyPageViewModel {
+ 
     struct Input {
         var loadMyProfileInfo = PassthroughSubject<Void, Never>()
         var loadReviewList = PassthroughSubject<[String], Never>()
@@ -51,8 +57,10 @@ extension MyPageViewModel {
         input.loadMyProfileInfo
             .sink { [weak self] _ in
                 guard let self else { return }
-                Task {
-                    await self.fetchProfile()
+                profileRepository.fetchData { (profile: ProfileModel) in
+                    self.output.review.removeAll()
+                    self.input.loadReviewList.send(profile.review)
+                    self.output.profile = profile
                 }
             }
             .store(in: &cancellables)
@@ -61,57 +69,14 @@ extension MyPageViewModel {
             .sink { [weak self] reviewList in
                 guard let self else { return }
                 for review in reviewList {
-                    Task {
-                        await self.fetchReview(id: review)
+                    reviewRepository.router = PostRouter.getThisPost(id: review)
+                    reviewRepository.fetchData { review in
+                        self.output.review.append(review)
                     }
                 }
             }
             .store(in: &cancellables)
     }
     
-    func fetchReview(id: String) async {
-        do {
-            try await Network.shared.myAPICall(model: ThisReviewResponseDTO.self, router: PostRouter.getThisPost(id: id))
-                .sink { result in
-                    switch result{
-                    case .finished:
-                        print("Fetch Success")
-                    case .failure:
-                        print("Fetch Failed")
-                        print(result.self)
-                    }
-                } receiveValue: { [weak self] resultReview in
-                    guard let self else { return }
-                    self.output.review.append(resultReview.toDomain())
-                }
-                .store(in: &cancellables)
-        } catch {
-            print("으아악 실패")
-        }
-    }
-    
-    func fetchProfile() async {
-        do {
-            try await Network.shared.myAPICall(model: ProfileResponseDTO.self, router: ProfileRouter.myProfile)
-                .sink { result in
-                    switch result{
-                    case .finished:
-                        print("Fetch Success")
-                    case .failure:
-                        print("Fetch Failed")
-                        print(result.self)
-                    }
-                } receiveValue: { [weak self] resultProfile in
-                    guard let self else { return }
-                    self.output.review.removeAll()
-                    self.input.loadReviewList.send(resultProfile.review)
-                    self.output.profile = resultProfile.toDomain()
-                }
-                .store(in: &cancellables)
-        } catch {
-            print("으아악 실패")
-        }
-    }
-
 
 }

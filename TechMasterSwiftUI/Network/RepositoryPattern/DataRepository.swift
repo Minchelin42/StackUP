@@ -43,6 +43,20 @@ final class HomeRepository: DataRepository {
     }
 }
 
+final class ChatRepository: DataRepository {
+    var networkProvider: NetworkProvider = NetworkProvider()
+    var dataResponseStorage: DataResponseStorage = DefaultResponseStorage()
+    
+    var router: TargetType = ChatRouter.loadChatHistory(roomID: "")
+    
+    func fetchData<T>(completion: @escaping (T) -> Void) {
+
+        dataResponseStorage.getResponse(networkProvider: networkProvider, model: ChatHistoryDTO.self, router: router) { result in
+            completion(result.toDomain() as! T)
+        }
+    }
+}
+
 final class ProfileRepository: DataRepository {
     var networkProvider: NetworkProvider = NetworkProvider()
     var dataResponseStorage: DataResponseStorage = DefaultResponseStorage()

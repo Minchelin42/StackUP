@@ -15,6 +15,7 @@ public enum NextView: Hashable {
     case classDetailView(postID: String)
     case scrapListView
     case payListView
+    case chatView
     case tabView
 }
 
@@ -37,6 +38,8 @@ struct FeatureView: View {
             MyClassListView()
         case .payListView:
             MyClassListView()
+        case .chatView:
+            ChatView()
         case .tabView:
             MyTabView()
         }

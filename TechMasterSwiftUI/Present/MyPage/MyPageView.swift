@@ -110,7 +110,7 @@ extension MyPageView {
         case .course:
             NextView.scrapListView
         case .customerService:
-            NextView.contentView
+            NextView.chatView
         default: NextView.contentView
         }
     }

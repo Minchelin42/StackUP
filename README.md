@@ -17,16 +17,23 @@
 - 저장한 강의 및 수강중인 강의 내역 조회
 
 ## ⚒️ 사용 기술 및 라이브러리
-`SwiftUI` `Combine` `Alamofire` `Kingfisher` `SocketIO` `UIKit` `DTO` `iamport` `SwiftConcurrency` `MVVM` `SPM`
+`SwiftUI` `Combine` `Alamofire` `Kingfisher` `SocketIO` `UIKit` `DTO` `iamport` `SwiftConcurrency` `MVVM` `SPM` `UIViewControllerRepresentable`
 
 ## ⚒️ 기술 적용
 
-- **Task**을 통해 비동기 작업 캡슐화, 관찰 및 제어
 - **SocketIO**을 통한 실시간 양방향 통신으로 클라이언트와 서버 간의 메시지 전송을 실시간으로 처리
-- **DTO**를 통해  데이터 계층 간의 객체 전송을 단순화하고 효율화하여 시스템 모듈 간의 결합도를 낮춤
-- **Portone** 연동을 통해 여러 결제 대행사(PG) 및 간편결제를 WebView 기반으로 구현
-- SwiftUI에서 **Router Pattern**을 통해 뷰 전환을 제어하고, 앱의 네비게이션 흐름에 대한 유지보수가 용이하도록 구현
+- **DTO**를 통해 데이터 계층 간의 객체 전송을 단순화하고 효율화하여 시스템 모듈 간의 결합도를 낮춤
+- **Router Pattern**을 통해 뷰 전환을 제어하고, 앱의 네비게이션 흐름에 대한 유지보수가 용이하도록 구현
+- **@EnvironmentObject**를 통해 각 뷰가 동일한 라우팅 상태를 공유하고 동기화할 수 있도록 구현
+- **UIViewControllerRepresentable**을 통해 SwiftUI와 UIKit을 혼합적으로 사용
+- **CustomModifier**를 통해 코드의 재사용성과 일관성을 높임
+- **@StateObject**를 사용하여 뷰의 렌더링과 관계없이 뷰 내에서 재사용하도록 구현
+- **ObservableObject**를 사용하여 값이 업데이트 될 때마다 뷰를 갱신하도록 구현
 - **propertyWrapper**를 통해 UserDefaults 값을 저장 및 접근할 수 있도록 구현하여 코드의 재사용성을 높이고 데이터 저장 로직을 간결하게 만듦
+- **Cursor-based Pagenation**을 통해 대규모 데이터셋을 효율적으로 처리
+- **enum**을 통해 뷰의 재사용성과 코드의 가독성을 높임
+- 결제 요청 후 영수증 검증을 통하여 서버에 구매 처리 요청 진행
+
 
 ## 📷 스크린샷
 
@@ -44,9 +51,12 @@
 
 ## 💥 트러블슈팅
 
-### 1️⃣ 복잡한 화면 전환 로직에 대한 불편함
+### 1️⃣ Router Pattern을 도입하여 Navigation 관리
 
-Navigation을 이용한 화면 전환 로직이 복잡하여 한 곳에서 관리하기 위해 Router Pattern 도입
+문제 상황 : 복잡한 화면 전환 로직에 대한 불편함
+
+해결 방안 : Router Pattern을 도입하여 화면 전환을 한 곳에서 관리
+
 
 ```Swift
 public final class Router: ObservableObject {
@@ -84,10 +94,11 @@ public final class Router: ObservableObject {
 }
 ```
 
-### 2️⃣ 프로필 수정 API 통신 이후 pop 됐을 때 바로 데이터가 적용되지 않음
+### 2️⃣ onChange를 통해 값의 변화를 감지하여 변화에 따른 로직 적용
+
 초기 상황 : 프로필 수정 alert 버튼 확인을 누르면 API 통신 -> router.pop을 이용하여 화면 전환
 
-발생한 문제 : 이러한 방식을 사용할 경우 프로필 수정 API 보다 이전 화면에서 프로필 조회 API가 먼저 완료될 경우 변경된 프로필로 조회해서 가져올 수 없음
+문제 상황 : 이러한 방식을 사용할 경우 프로필 수정 API 보다 이전 화면에서 프로필 조회 API가 먼저 완료될 경우 변경된 프로필로 조회해서 가져올 수 없음
 
 해결 방안 : viewModel에서 editProfile 통신 후 receiveValue에서 값을 받으면 output.pop에 대한 값을 변경하여 해당 output 값이 변하는 시점을 **onChange**를 통해 파악하고 이때 router.pop이 실행되도록 변경
 
